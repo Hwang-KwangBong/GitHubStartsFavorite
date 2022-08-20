@@ -100,11 +100,12 @@
                     </view>
                     <connections>
                         <outlet property="tableViewFavoriteAPI" destination="Spy-KY-XNO" id="3CM-In-Mnw"/>
+                        <outlet property="textFieldSearch" destination="lXM-Cb-Ngq" id="rpX-QU-ssC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l4c-Gw-Pw9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1286" y="103"/>
+            <point key="canvasLocation" x="1285.5072463768117" y="102.45535714285714"/>
         </scene>
         <!--Github Stars Favorite Local View Controller-->
         <scene sceneID="Uad-je-jhc">

@@ -9,10 +9,17 @@ import UIKit
 
 extension UIViewController {
     func showAlert(title: String?, message: String?, completion: ((UIAlertController) -> Void)? = nil) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        if let callBack = completion {
-            callBack(alert)
-        }
-        self.present(alert, animated: true, completion: nil)
+        let alert = UIAlertController(title:title,message: message,preferredStyle: UIAlertController.Style.alert)
+        //확인 버튼 만들기
+        let ok = UIAlertAction(title: "확인", style: .default, handler: {
+            action in
+            if let callBack = completion {
+                callBack(alert)
+            }
+        })
+        alert.addAction(ok)
+        present(alert,animated: true,completion: nil)
     }
+    
+
 }

@@ -10,7 +10,17 @@ import RxCocoa
 import RxSwift
 
 class GithubStarsFavoriteAPIViewModel: BaseViewModel {
+    var page = 1
+    let perPage = 30
+    var userData = [User]()
+    
     let modelGithubStarsFavoriteAPI:PublishSubject<[User]> = PublishSubject()
+    
+    func clearList() {
+        page = 1
+        userData = [User]()
+        self.modelGithubStarsFavoriteAPI.onNext(userData)
+    }
     
     // MARK: Network
     func requestUserList(params:SearchUserParams,_ isLoadingBar : Bool = true) {
@@ -22,7 +32,8 @@ class GithubStarsFavoriteAPIViewModel: BaseViewModel {
             }
             
             print(response)
-            self.modelGithubStarsFavoriteAPI.onNext(response.items)
+            self.userData.append(contentsOf: response.items)
+            self.modelGithubStarsFavoriteAPI.onNext(self.userData)
             
         }
     }
