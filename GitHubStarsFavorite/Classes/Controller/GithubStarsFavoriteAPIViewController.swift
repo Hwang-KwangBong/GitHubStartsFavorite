@@ -67,7 +67,7 @@ class GithubStarsFavoriteAPIViewController: UIViewController {
         refreshControl
             .rx
             .controlEvent(.valueChanged)
-            .debounce(RxTimeInterval.milliseconds(500), scheduler: MainScheduler.instance)
+            .debounce(RxTimeInterval.milliseconds(300), scheduler: MainScheduler.instance)
             .subscribe(onNext: { t in
                 refreshControl.endRefreshing()
                 self.viewModelGithubStarsFavoriteAPI.userData = [User]()
@@ -94,7 +94,7 @@ class GithubStarsFavoriteAPIViewController: UIViewController {
     
     func initSearch() {
         self.textFieldSearch.rx.text.orEmpty
-            .debounce(RxTimeInterval.milliseconds(500), scheduler: MainScheduler.instance)
+            .debounce(RxTimeInterval.milliseconds(300), scheduler: MainScheduler.instance)
             .distinctUntilChanged()   // 같은 아이템을 받지 않는기능
             .subscribe(onNext: { t in
                 if t.isEmpty {

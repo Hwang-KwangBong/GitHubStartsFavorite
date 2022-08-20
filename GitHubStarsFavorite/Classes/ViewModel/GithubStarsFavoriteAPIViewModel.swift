@@ -11,7 +11,7 @@ import RxSwift
 
 class GithubStarsFavoriteAPIViewModel: BaseViewModel {
     var page = 1
-    let perPage = 30
+    let perPage = 50
     var userData = [User]()
     
     let modelGithubStarsFavoriteAPI:PublishSubject<[User]> = PublishSubject()

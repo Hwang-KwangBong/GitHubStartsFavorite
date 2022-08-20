@@ -15,6 +15,7 @@
 		A538324C28B0C5E000D001B8 /* GithubStarsFavoriteAPIViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A538324B28B0C5E000D001B8 /* GithubStarsFavoriteAPIViewModel.swift */; };
 		A538324F28B0CC5300D001B8 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A538324E28B0CC5300D001B8 /* Kingfisher */; };
 		A538325228B0D16E00D001B8 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A538325128B0D16E00D001B8 /* UIViewController+Extension.swift */; };
+		A538325528B186F200D001B8 /* RxGRDB in Frameworks */ = {isa = PBXBuildFile; productRef = A538325428B186F200D001B8 /* RxGRDB */; };
 		A542D28F28B093E300AE472E /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = A542D28E28B093E300AE472E /* Moya */; };
 		A5AC324428B0963B00E9588C /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5AC324328B0963B00E9588C /* BaseViewModel.swift */; };
 		A5AC324728B096A800E9588C /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = A5AC324628B096A800E9588C /* RxCocoa */; };
@@ -94,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A538325528B186F200D001B8 /* RxGRDB in Frameworks */,
 				A538324F28B0CC5300D001B8 /* Kingfisher in Frameworks */,
 				A5AC324728B096A800E9588C /* RxCocoa in Frameworks */,
 				A542D28F28B093E300AE472E /* Moya in Frameworks */,
@@ -303,6 +305,7 @@
 				A5AC324628B096A800E9588C /* RxCocoa */,
 				A5AC324928B099C400E9588C /* Tabman */,
 				A538324E28B0CC5300D001B8 /* Kingfisher */,
+				A538325428B186F200D001B8 /* RxGRDB */,
 			);
 			productName = GitHubStartsFavorite;
 			productReference = A5D36F4928B0604A003F59CB /* GitHubStarsFavorite.app */;
@@ -382,6 +385,7 @@
 				A5AC324528B096A800E9588C /* XCRemoteSwiftPackageReference "Rxswift" */,
 				A5AC324828B099C400E9588C /* XCRemoteSwiftPackageReference "Tabman" */,
 				A538324D28B0CC5300D001B8 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				A538325328B186F200D001B8 /* XCRemoteSwiftPackageReference "RxGRDB" */,
 			);
 			productRefGroup = A5D36F4A28B0604A003F59CB /* Products */;
 			projectDirPath = "";
@@ -801,6 +805,14 @@
 				kind = branch;
 			};
 		};
+		A538325328B186F200D001B8 /* XCRemoteSwiftPackageReference "RxGRDB" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxGRDB";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		A542D28A28B0932400AE472E /* XCRemoteSwiftPackageReference "Rxswift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/reactiveX/Rxswift.git";
@@ -840,6 +852,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A538324D28B0CC5300D001B8 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		A538325428B186F200D001B8 /* RxGRDB */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A538325328B186F200D001B8 /* XCRemoteSwiftPackageReference "RxGRDB" */;
+			productName = RxGRDB;
 		};
 		A542D28E28B093E300AE472E /* Moya */ = {
 			isa = XCSwiftPackageProductDependency;
