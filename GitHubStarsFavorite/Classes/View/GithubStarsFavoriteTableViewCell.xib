@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="githubStarsFavoriteTableViewCellID" rowHeight="111" id="95e-9J-5F3" customClass="GithubStarsFavoriteTableViewCell" customModule="GitHubStarsFavorite" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="111"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="95e-9J-5F3" id="Y29-Ff-WgO">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="111"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5dT-hh-fPP">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="20.5"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="t8Y-Sa-zmi">
+                                <rect key="frame" x="20" y="5" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="0x6-aS-zGW"/>
+                                    <constraint firstAttribute="width" constant="80" id="VPm-gu-POP"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="김드라마" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SgR-sd-mq3">
+                                <rect key="frame" x="125" y="0.0" width="214" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aPZ-i3-E21">
+                                <rect key="frame" x="344" y="-15" width="50" height="50.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="L7V-7l-DQd"/>
+                                    <constraint firstAttribute="height" constant="50" id="odt-uJ-fmH"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="btnFavoriteNormal"/>
+                                <state key="selected" image="btnFavoriteSelected"/>
+                                <connections>
+                                    <action selector="favoriteAction:" destination="95e-9J-5F3" eventType="touchUpInside" id="6Ic-OK-DTG"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="SgR-sd-mq3" firstAttribute="leading" secondItem="t8Y-Sa-zmi" secondAttribute="trailing" constant="25" id="0g5-cv-VaA"/>
+                            <constraint firstItem="t8Y-Sa-zmi" firstAttribute="leading" secondItem="5dT-hh-fPP" secondAttribute="leading" constant="20" id="4TU-F0-02g"/>
+                            <constraint firstItem="aPZ-i3-E21" firstAttribute="leading" secondItem="SgR-sd-mq3" secondAttribute="trailing" constant="5" id="7aC-0j-FDb"/>
+                            <constraint firstItem="SgR-sd-mq3" firstAttribute="top" secondItem="5dT-hh-fPP" secondAttribute="top" id="C6j-jb-VRg"/>
+                            <constraint firstAttribute="bottom" secondItem="t8Y-Sa-zmi" secondAttribute="bottom" constant="20" id="GlC-37-PS9"/>
+                            <constraint firstItem="t8Y-Sa-zmi" firstAttribute="top" secondItem="5dT-hh-fPP" secondAttribute="top" constant="5" id="UvO-AU-FUT"/>
+                            <constraint firstItem="t8Y-Sa-zmi" firstAttribute="centerY" secondItem="5dT-hh-fPP" secondAttribute="centerY" id="axk-iD-yiu"/>
+                            <constraint firstAttribute="trailing" secondItem="aPZ-i3-E21" secondAttribute="trailing" constant="20" id="dEx-cM-Pnv"/>
+                            <constraint firstItem="aPZ-i3-E21" firstAttribute="centerY" secondItem="5dT-hh-fPP" secondAttribute="centerY" id="g5O-yx-6ZW"/>
+                            <constraint firstAttribute="bottom" secondItem="SgR-sd-mq3" secondAttribute="bottom" id="ryi-e2-Fcd"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="5dT-hh-fPP" firstAttribute="top" secondItem="Y29-Ff-WgO" secondAttribute="top" id="Ewr-iT-daB"/>
+                    <constraint firstItem="5dT-hh-fPP" firstAttribute="leading" secondItem="Y29-Ff-WgO" secondAttribute="leading" id="SuM-Qr-5VJ"/>
+                    <constraint firstAttribute="bottom" secondItem="5dT-hh-fPP" secondAttribute="bottom" id="Zkb-Mo-eE4"/>
+                    <constraint firstAttribute="trailing" secondItem="5dT-hh-fPP" secondAttribute="trailing" id="bmj-gV-cNL"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="imageViewProfile" destination="t8Y-Sa-zmi" id="6ix-jf-O9i"/>
+                <outlet property="labelName" destination="SgR-sd-mq3" id="9Wj-la-lN4"/>
+            </connections>
+            <point key="canvasLocation" x="-236.23188405797103" y="156.36160714285714"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="btnFavoriteNormal" width="20" height="20"/>
+        <image name="btnFavoriteSelected" width="20" height="20"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

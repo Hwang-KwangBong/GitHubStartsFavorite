@@ -1,5 +1,5 @@
 //
-//  GithubStarsFavoriteViewModel.swift
+//  GithubStarsFavoriteAPIViewModel.swift
 //  GitHubStarsFavorite
 //
 //  Created by kwangbong hwang on 2022/08/20.
@@ -9,8 +9,8 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-class GithubStarsFavoriteViewModel: BaseViewModel {
-    let modelGithubStarsFavorite:PublishSubject<Users> = PublishSubject()
+class GithubStarsFavoriteAPIViewModel: BaseViewModel {
+    let modelGithubStarsFavoriteAPI:PublishSubject<[User]> = PublishSubject()
     
     // MARK: Network
     func requestUserList(params:SearchUserParams,_ isLoadingBar : Bool = true) {
@@ -22,7 +22,7 @@ class GithubStarsFavoriteViewModel: BaseViewModel {
             }
             
             print(response)
-            self.modelGithubStarsFavorite.onNext(response)
+            self.modelGithubStarsFavoriteAPI.onNext(response.items)
             
         }
     }

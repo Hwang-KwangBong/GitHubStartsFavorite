@@ -34,12 +34,11 @@ extension GithubStarsFavoriteTabViewController:PageboyViewControllerDataSource {
     }
     
     func viewController(for pageboyViewController: PageboyViewController, at index: PageboyViewController.PageIndex) -> UIViewController? {
-        UIViewController()
-//        viewControllers[index] // View controller to display at a specific index for the page view controller.
+        viewModelGithubStarsFavoriteTabView.viewControllers[index]
     }
     
     func defaultPage(for pageboyViewController: PageboyViewController) -> PageboyViewController.Page? {
-        nil // Default page to display in the page view controller (nil equals default/first index).
+        nil
     }
 }
 

@@ -9,6 +9,7 @@ import Foundation
 
 struct User {
 
+    let id : Int
     let name: String
     let url: String
     let imageUrl: String
@@ -18,6 +19,7 @@ struct User {
 extension User: Codable {
 
     private enum CodingKeys: String, CodingKey {
+        case id = "id"
         case name = "login"
         case url = "url"
         case imageUrl =  "avatar_url"

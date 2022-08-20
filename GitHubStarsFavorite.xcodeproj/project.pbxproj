@@ -8,8 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		A538324128B0AC5600D001B8 /* GithubStarsFavoriteTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A538324028B0AC5600D001B8 /* GithubStarsFavoriteTabViewModel.swift */; };
+		A538324328B0AF9A00D001B8 /* GithubStarsFavoriteAPIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A538324228B0AF9A00D001B8 /* GithubStarsFavoriteAPIViewController.swift */; };
+		A538324528B0AFB400D001B8 /* GithubStarsFavoriteLocalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A538324428B0AFB400D001B8 /* GithubStarsFavoriteLocalViewController.swift */; };
+		A538324828B0B14B00D001B8 /* GithubStarsFavoriteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A538324728B0B14B00D001B8 /* GithubStarsFavoriteTableViewCell.xib */; };
+		A538324A28B0B18F00D001B8 /* GithubStarsFavoriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A538324928B0B18F00D001B8 /* GithubStarsFavoriteTableViewCell.swift */; };
+		A538324C28B0C5E000D001B8 /* GithubStarsFavoriteAPIViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A538324B28B0C5E000D001B8 /* GithubStarsFavoriteAPIViewModel.swift */; };
+		A538324F28B0CC5300D001B8 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A538324E28B0CC5300D001B8 /* Kingfisher */; };
+		A538325228B0D16E00D001B8 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A538325128B0D16E00D001B8 /* UIViewController+Extension.swift */; };
 		A542D28F28B093E300AE472E /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = A542D28E28B093E300AE472E /* Moya */; };
-		A5AC324128B095DF00E9588C /* GithubStarsFavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5AC324028B095DF00E9588C /* GithubStarsFavoriteViewModel.swift */; };
 		A5AC324428B0963B00E9588C /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5AC324328B0963B00E9588C /* BaseViewModel.swift */; };
 		A5AC324728B096A800E9588C /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = A5AC324628B096A800E9588C /* RxCocoa */; };
 		A5AC324A28B099C400E9588C /* Tabman in Frameworks */ = {isa = PBXBuildFile; productRef = A5AC324928B099C400E9588C /* Tabman */; };
@@ -52,7 +58,12 @@
 
 /* Begin PBXFileReference section */
 		A538324028B0AC5600D001B8 /* GithubStarsFavoriteTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubStarsFavoriteTabViewModel.swift; sourceTree = "<group>"; };
-		A5AC324028B095DF00E9588C /* GithubStarsFavoriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubStarsFavoriteViewModel.swift; sourceTree = "<group>"; };
+		A538324228B0AF9A00D001B8 /* GithubStarsFavoriteAPIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubStarsFavoriteAPIViewController.swift; sourceTree = "<group>"; };
+		A538324428B0AFB400D001B8 /* GithubStarsFavoriteLocalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubStarsFavoriteLocalViewController.swift; sourceTree = "<group>"; };
+		A538324728B0B14B00D001B8 /* GithubStarsFavoriteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GithubStarsFavoriteTableViewCell.xib; sourceTree = "<group>"; };
+		A538324928B0B18F00D001B8 /* GithubStarsFavoriteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubStarsFavoriteTableViewCell.swift; sourceTree = "<group>"; };
+		A538324B28B0C5E000D001B8 /* GithubStarsFavoriteAPIViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubStarsFavoriteAPIViewModel.swift; sourceTree = "<group>"; };
+		A538325128B0D16E00D001B8 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		A5AC324328B0963B00E9588C /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		A5AC324B28B0A3B400E9588C /* GithubStarsFavoriteTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubStarsFavoriteTabViewController.swift; sourceTree = "<group>"; };
 		A5D36F4928B0604A003F59CB /* GitHubStarsFavorite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubStarsFavorite.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -83,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A538324F28B0CC5300D001B8 /* Kingfisher in Frameworks */,
 				A5AC324728B096A800E9588C /* RxCocoa in Frameworks */,
 				A542D28F28B093E300AE472E /* Moya in Frameworks */,
 				A5AC324A28B099C400E9588C /* Tabman in Frameworks */,
@@ -106,6 +118,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A538324628B0B11500D001B8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A538324728B0B14B00D001B8 /* GithubStarsFavoriteTableViewCell.xib */,
+				A538324928B0B18F00D001B8 /* GithubStarsFavoriteTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A538325028B0D15000D001B8 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				A538325128B0D16E00D001B8 /* UIViewController+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		A5AC324228B0962800E9588C /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -137,6 +166,7 @@
 		A5D36F4B28B0604A003F59CB /* GitHubStarsFavorite */ = {
 			isa = PBXGroup;
 			children = (
+				A538325028B0D15000D001B8 /* Extension */,
 				A5D36F9928B07122003F59CB /* Classes */,
 				A5D36F7C28B06921003F59CB /* Network */,
 				A5D36F4C28B0604A003F59CB /* AppDelegate.swift */,
@@ -206,6 +236,7 @@
 		A5D36F9928B07122003F59CB /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A538324628B0B11500D001B8 /* View */,
 				A5D36FA528B09176003F59CB /* Controller */,
 				A5D36FA428B09121003F59CB /* ViewModel */,
 				A5D36F9A28B07136003F59CB /* Model */,
@@ -234,8 +265,8 @@
 			isa = PBXGroup;
 			children = (
 				A5AC324228B0962800E9588C /* Common */,
-				A5AC324028B095DF00E9588C /* GithubStarsFavoriteViewModel.swift */,
 				A538324028B0AC5600D001B8 /* GithubStarsFavoriteTabViewModel.swift */,
+				A538324B28B0C5E000D001B8 /* GithubStarsFavoriteAPIViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -245,6 +276,8 @@
 			children = (
 				A5D36F5028B0604A003F59CB /* GithubStarsFavoriteViewController.swift */,
 				A5AC324B28B0A3B400E9588C /* GithubStarsFavoriteTabViewController.swift */,
+				A538324228B0AF9A00D001B8 /* GithubStarsFavoriteAPIViewController.swift */,
+				A538324428B0AFB400D001B8 /* GithubStarsFavoriteLocalViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -269,6 +302,7 @@
 				A542D28E28B093E300AE472E /* Moya */,
 				A5AC324628B096A800E9588C /* RxCocoa */,
 				A5AC324928B099C400E9588C /* Tabman */,
+				A538324E28B0CC5300D001B8 /* Kingfisher */,
 			);
 			productName = GitHubStartsFavorite;
 			productReference = A5D36F4928B0604A003F59CB /* GitHubStarsFavorite.app */;
@@ -347,6 +381,7 @@
 				A542D28D28B093E300AE472E /* XCRemoteSwiftPackageReference "Moya" */,
 				A5AC324528B096A800E9588C /* XCRemoteSwiftPackageReference "Rxswift" */,
 				A5AC324828B099C400E9588C /* XCRemoteSwiftPackageReference "Tabman" */,
+				A538324D28B0CC5300D001B8 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = A5D36F4A28B0604A003F59CB /* Products */;
 			projectDirPath = "";
@@ -364,6 +399,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A538324828B0B14B00D001B8 /* GithubStarsFavoriteTableViewCell.xib in Resources */,
 				A5D36F5928B0604C003F59CB /* LaunchScreen.storyboard in Resources */,
 				A5D36F5628B0604C003F59CB /* Assets.xcassets in Resources */,
 				A5D36F5428B0604A003F59CB /* Main.storyboard in Resources */,
@@ -399,12 +435,16 @@
 				A5D36FA328B08590003F59CB /* Users.swift in Sources */,
 				A5D36F8E28B06AA4003F59CB /* Networkable.swift in Sources */,
 				A5D36F8028B069E0003F59CB /* GithubSearchUsersAPI.swift in Sources */,
+				A538325228B0D16E00D001B8 /* UIViewController+Extension.swift in Sources */,
 				A5AC324428B0963B00E9588C /* BaseViewModel.swift in Sources */,
 				A5D36F9C28B071EA003F59CB /* SearchUserParams.swift in Sources */,
 				A5D36F8F28B06AA4003F59CB /* BaseTargetType.swift in Sources */,
-				A5AC324128B095DF00E9588C /* GithubStarsFavoriteViewModel.swift in Sources */,
+				A538324528B0AFB400D001B8 /* GithubStarsFavoriteLocalViewController.swift in Sources */,
+				A538324C28B0C5E000D001B8 /* GithubStarsFavoriteAPIViewModel.swift in Sources */,
 				A538324128B0AC5600D001B8 /* GithubStarsFavoriteTabViewModel.swift in Sources */,
 				A5D36F9F28B07376003F59CB /* Encodable.swift in Sources */,
+				A538324328B0AF9A00D001B8 /* GithubStarsFavoriteAPIViewController.swift in Sources */,
+				A538324A28B0B18F00D001B8 /* GithubStarsFavoriteTableViewCell.swift in Sources */,
 				A5D36FA128B08557003F59CB /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -753,6 +793,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		A538324D28B0CC5300D001B8 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		A542D28A28B0932400AE472E /* XCRemoteSwiftPackageReference "Rxswift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/reactiveX/Rxswift.git";
@@ -788,6 +836,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		A538324E28B0CC5300D001B8 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A538324D28B0CC5300D001B8 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
 		A542D28E28B093E300AE472E /* Moya */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = A542D28D28B093E300AE472E /* XCRemoteSwiftPackageReference "Moya" */;

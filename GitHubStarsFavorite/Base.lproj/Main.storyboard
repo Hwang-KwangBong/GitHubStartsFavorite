@@ -65,6 +65,82 @@
             </objects>
             <point key="canvasLocation" x="562" y="122"/>
         </scene>
+        <!--Github Stars FavoriteAPI View Controller-->
+        <scene sceneID="8Nw-7S-QQ0">
+            <objects>
+                <viewController storyboardIdentifier="githubStarsFavoriteAPIViewControllerID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="76R-41-nbR" customClass="GithubStarsFavoriteAPIViewController" customModule="GitHubStarsFavorite" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TWI-wr-68w">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="검색어를 입력하세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lXM-Cb-Ngq">
+                                <rect key="frame" x="0.0" y="44" width="414" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="yfg-QI-3dx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Spy-KY-XNO">
+                                <rect key="frame" x="0.0" y="84" width="414" height="778"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="g2x-Ze-f0H"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="lXM-Cb-Ngq" firstAttribute="top" secondItem="g2x-Ze-f0H" secondAttribute="top" id="9z9-Pc-VN3"/>
+                            <constraint firstItem="g2x-Ze-f0H" firstAttribute="trailing" secondItem="lXM-Cb-Ngq" secondAttribute="trailing" id="DMZ-Pv-mW2"/>
+                            <constraint firstItem="lXM-Cb-Ngq" firstAttribute="leading" secondItem="g2x-Ze-f0H" secondAttribute="leading" id="Xuo-kx-ETl"/>
+                            <constraint firstItem="Spy-KY-XNO" firstAttribute="top" secondItem="lXM-Cb-Ngq" secondAttribute="bottom" id="hg7-CR-4pc"/>
+                            <constraint firstItem="g2x-Ze-f0H" firstAttribute="trailing" secondItem="Spy-KY-XNO" secondAttribute="trailing" id="mgD-yu-0Qm"/>
+                            <constraint firstItem="g2x-Ze-f0H" firstAttribute="bottom" secondItem="Spy-KY-XNO" secondAttribute="bottom" id="ueA-EN-Gpl"/>
+                            <constraint firstItem="Spy-KY-XNO" firstAttribute="leading" secondItem="g2x-Ze-f0H" secondAttribute="leading" id="viw-oK-nxl"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableViewFavoriteAPI" destination="Spy-KY-XNO" id="3CM-In-Mnw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l4c-Gw-Pw9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1286" y="103"/>
+        </scene>
+        <!--Github Stars Favorite Local View Controller-->
+        <scene sceneID="Uad-je-jhc">
+            <objects>
+                <viewController storyboardIdentifier="githubStarsFavoriteLocalViewControllerID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="EAN-Dy-ZPY" customClass="GithubStarsFavoriteLocalViewController" customModule="GitHubStarsFavorite" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HMp-qh-3gg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="검색어를 입력하세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O9f-4X-XPd">
+                                <rect key="frame" x="0.0" y="44" width="414" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="fjl-Sx-0oH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="cx1-bG-uEB">
+                                <rect key="frame" x="0.0" y="84" width="414" height="778"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="nDk-yA-uat"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="O9f-4X-XPd" firstAttribute="trailing" secondItem="nDk-yA-uat" secondAttribute="trailing" id="1GI-Hg-2Y1"/>
+                            <constraint firstItem="O9f-4X-XPd" firstAttribute="leading" secondItem="nDk-yA-uat" secondAttribute="leading" id="Nak-ae-YDm"/>
+                            <constraint firstItem="O9f-4X-XPd" firstAttribute="top" secondItem="nDk-yA-uat" secondAttribute="top" id="e1j-lt-EWt"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fCh-q7-SBk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2042" y="102"/>
+        </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">

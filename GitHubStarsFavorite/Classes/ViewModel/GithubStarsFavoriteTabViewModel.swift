@@ -14,6 +14,12 @@ class GithubStarsFavoriteTabViewViewModel: NSObject {
         "API", "로컬"
     ]
     
+    let githubStoryboard = UIStoryboard(name: "Main", bundle: nil)
+    
+    lazy var viewControllers:[UIViewController] = [
+        githubStoryboard.instantiateViewController(withIdentifier: "githubStarsFavoriteAPIViewControllerID"),
+        githubStoryboard.instantiateViewController(withIdentifier: "githubStarsFavoriteLocalViewControllerID"),
+    ]
     
     func setButtonBar() -> TMBar {
         let bar = TMBarView.ButtonBar()
