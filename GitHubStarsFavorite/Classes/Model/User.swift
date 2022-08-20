@@ -8,20 +8,16 @@
 import Foundation
 
 struct User {
-
-    let id : Int
     let name: String
-    let url: String
     let imageUrl: String
+    var isFavorite: Bool = false
 }
 
 // MARK: - Decodable
 extension User: Codable {
 
     private enum CodingKeys: String, CodingKey {
-        case id = "id"
         case name = "login"
-        case url = "url"
         case imageUrl =  "avatar_url"
     }
 }
