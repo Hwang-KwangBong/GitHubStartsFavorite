@@ -7,14 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A538324128B0AC5600D001B8 /* GithubStarsFavoriteTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A538324028B0AC5600D001B8 /* GithubStarsFavoriteTabViewModel.swift */; };
+		A542D28F28B093E300AE472E /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = A542D28E28B093E300AE472E /* Moya */; };
+		A5AC324128B095DF00E9588C /* GithubStarsFavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5AC324028B095DF00E9588C /* GithubStarsFavoriteViewModel.swift */; };
+		A5AC324428B0963B00E9588C /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5AC324328B0963B00E9588C /* BaseViewModel.swift */; };
+		A5AC324728B096A800E9588C /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = A5AC324628B096A800E9588C /* RxCocoa */; };
+		A5AC324A28B099C400E9588C /* Tabman in Frameworks */ = {isa = PBXBuildFile; productRef = A5AC324928B099C400E9588C /* Tabman */; };
+		A5AC324C28B0A3B400E9588C /* GithubStarsFavoriteTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5AC324B28B0A3B400E9588C /* GithubStarsFavoriteTabViewController.swift */; };
 		A5D36F4D28B0604A003F59CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D36F4C28B0604A003F59CB /* AppDelegate.swift */; };
-		A5D36F5128B0604A003F59CB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D36F5028B0604A003F59CB /* ViewController.swift */; };
+		A5D36F5128B0604A003F59CB /* GithubStarsFavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D36F5028B0604A003F59CB /* GithubStarsFavoriteViewController.swift */; };
 		A5D36F5428B0604A003F59CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5D36F5228B0604A003F59CB /* Main.storyboard */; };
 		A5D36F5628B0604C003F59CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5D36F5528B0604C003F59CB /* Assets.xcassets */; };
 		A5D36F5928B0604C003F59CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5D36F5728B0604C003F59CB /* LaunchScreen.storyboard */; };
 		A5D36F6428B0604D003F59CB /* GitHubStartsFavoriteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D36F6328B0604D003F59CB /* GitHubStartsFavoriteTests.swift */; };
 		A5D36F6E28B0604D003F59CB /* GitHubStartsFavoriteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D36F6D28B0604D003F59CB /* GitHubStartsFavoriteUITests.swift */; };
 		A5D36F7028B0604D003F59CB /* GitHubStartsFavoriteUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D36F6F28B0604D003F59CB /* GitHubStartsFavoriteUITestsLaunchTests.swift */; };
+		A5D36F8028B069E0003F59CB /* GithubSearchUsersAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D36F7F28B069E0003F59CB /* GithubSearchUsersAPI.swift */; };
+		A5D36F8D28B06AA4003F59CB /* ResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D36F8928B06AA3003F59CB /* ResponseData.swift */; };
+		A5D36F8E28B06AA4003F59CB /* Networkable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D36F8A28B06AA4003F59CB /* Networkable.swift */; };
+		A5D36F8F28B06AA4003F59CB /* BaseTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D36F8B28B06AA4003F59CB /* BaseTargetType.swift */; };
+		A5D36F9228B06B19003F59CB /* GithubSearchUsersTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D36F9128B06B18003F59CB /* GithubSearchUsersTarget.swift */; };
+		A5D36F9C28B071EA003F59CB /* SearchUserParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D36F9B28B071EA003F59CB /* SearchUserParams.swift */; };
+		A5D36F9F28B07376003F59CB /* Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D36F9E28B07376003F59CB /* Encodable.swift */; };
+		A5D36FA128B08557003F59CB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D36FA028B08557003F59CB /* User.swift */; };
+		A5D36FA328B08590003F59CB /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D36FA228B0858F003F59CB /* Users.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,18 +51,31 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		A5D36F4928B0604A003F59CB /* GitHubStartsFavorite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubStartsFavorite.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A538324028B0AC5600D001B8 /* GithubStarsFavoriteTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubStarsFavoriteTabViewModel.swift; sourceTree = "<group>"; };
+		A5AC324028B095DF00E9588C /* GithubStarsFavoriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubStarsFavoriteViewModel.swift; sourceTree = "<group>"; };
+		A5AC324328B0963B00E9588C /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		A5AC324B28B0A3B400E9588C /* GithubStarsFavoriteTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubStarsFavoriteTabViewController.swift; sourceTree = "<group>"; };
+		A5D36F4928B0604A003F59CB /* GitHubStarsFavorite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubStarsFavorite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5D36F4C28B0604A003F59CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A5D36F5028B0604A003F59CB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A5D36F5028B0604A003F59CB /* GithubStarsFavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubStarsFavoriteViewController.swift; sourceTree = "<group>"; };
 		A5D36F5328B0604A003F59CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A5D36F5528B0604C003F59CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A5D36F5828B0604C003F59CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A5D36F5A28B0604C003F59CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A5D36F5F28B0604D003F59CB /* GitHubStartsFavoriteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GitHubStartsFavoriteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A5D36F5F28B0604D003F59CB /* GitHubStarsFavoriteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GitHubStarsFavoriteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5D36F6328B0604D003F59CB /* GitHubStartsFavoriteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubStartsFavoriteTests.swift; sourceTree = "<group>"; };
-		A5D36F6928B0604D003F59CB /* GitHubStartsFavoriteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GitHubStartsFavoriteUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A5D36F6928B0604D003F59CB /* GitHubStarsFavoriteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GitHubStarsFavoriteUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5D36F6D28B0604D003F59CB /* GitHubStartsFavoriteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubStartsFavoriteUITests.swift; sourceTree = "<group>"; };
 		A5D36F6F28B0604D003F59CB /* GitHubStartsFavoriteUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubStartsFavoriteUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		A5D36F7F28B069E0003F59CB /* GithubSearchUsersAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubSearchUsersAPI.swift; sourceTree = "<group>"; };
+		A5D36F8928B06AA3003F59CB /* ResponseData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseData.swift; sourceTree = "<group>"; };
+		A5D36F8A28B06AA4003F59CB /* Networkable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Networkable.swift; sourceTree = "<group>"; };
+		A5D36F8B28B06AA4003F59CB /* BaseTargetType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTargetType.swift; sourceTree = "<group>"; };
+		A5D36F9128B06B18003F59CB /* GithubSearchUsersTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubSearchUsersTarget.swift; sourceTree = "<group>"; };
+		A5D36F9B28B071EA003F59CB /* SearchUserParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserParams.swift; sourceTree = "<group>"; };
+		A5D36F9E28B07376003F59CB /* Encodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encodable.swift; sourceTree = "<group>"; };
+		A5D36FA028B08557003F59CB /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		A5D36FA228B0858F003F59CB /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +83,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5AC324728B096A800E9588C /* RxCocoa in Frameworks */,
+				A542D28F28B093E300AE472E /* Moya in Frameworks */,
+				A5AC324A28B099C400E9588C /* Tabman in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,10 +106,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A5AC324228B0962800E9588C /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				A5AC324328B0963B00E9588C /* BaseViewModel.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		A5D36F4028B0604A003F59CB = {
 			isa = PBXGroup;
 			children = (
-				A5D36F4B28B0604A003F59CB /* GitHubStartsFavorite */,
+				A5D36F4B28B0604A003F59CB /* GitHubStarsFavorite */,
 				A5D36F6228B0604D003F59CB /* GitHubStartsFavoriteTests */,
 				A5D36F6C28B0604D003F59CB /* GitHubStartsFavoriteUITests */,
 				A5D36F4A28B0604A003F59CB /* Products */,
@@ -87,24 +127,25 @@
 		A5D36F4A28B0604A003F59CB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A5D36F4928B0604A003F59CB /* GitHubStartsFavorite.app */,
-				A5D36F5F28B0604D003F59CB /* GitHubStartsFavoriteTests.xctest */,
-				A5D36F6928B0604D003F59CB /* GitHubStartsFavoriteUITests.xctest */,
+				A5D36F4928B0604A003F59CB /* GitHubStarsFavorite.app */,
+				A5D36F5F28B0604D003F59CB /* GitHubStarsFavoriteTests.xctest */,
+				A5D36F6928B0604D003F59CB /* GitHubStarsFavoriteUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A5D36F4B28B0604A003F59CB /* GitHubStartsFavorite */ = {
+		A5D36F4B28B0604A003F59CB /* GitHubStarsFavorite */ = {
 			isa = PBXGroup;
 			children = (
+				A5D36F9928B07122003F59CB /* Classes */,
+				A5D36F7C28B06921003F59CB /* Network */,
 				A5D36F4C28B0604A003F59CB /* AppDelegate.swift */,
-				A5D36F5028B0604A003F59CB /* ViewController.swift */,
 				A5D36F5228B0604A003F59CB /* Main.storyboard */,
 				A5D36F5528B0604C003F59CB /* Assets.xcassets */,
 				A5D36F5728B0604C003F59CB /* LaunchScreen.storyboard */,
 				A5D36F5A28B0604C003F59CB /* Info.plist */,
 			);
-			path = GitHubStartsFavorite;
+			path = GitHubStarsFavorite;
 			sourceTree = "<group>";
 		};
 		A5D36F6228B0604D003F59CB /* GitHubStartsFavoriteTests */ = {
@@ -124,12 +165,96 @@
 			path = GitHubStartsFavoriteUITests;
 			sourceTree = "<group>";
 		};
+		A5D36F7C28B06921003F59CB /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				A5D36F7D28B06937003F59CB /* APIs */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		A5D36F7D28B06937003F59CB /* APIs */ = {
+			isa = PBXGroup;
+			children = (
+				A5D36F7E28B06998003F59CB /* SearchUser */,
+				A5D36F8828B06A83003F59CB /* Common */,
+				A5D36F9D28B07344003F59CB /* Utils */,
+			);
+			path = APIs;
+			sourceTree = "<group>";
+		};
+		A5D36F7E28B06998003F59CB /* SearchUser */ = {
+			isa = PBXGroup;
+			children = (
+				A5D36F9128B06B18003F59CB /* GithubSearchUsersTarget.swift */,
+				A5D36F7F28B069E0003F59CB /* GithubSearchUsersAPI.swift */,
+				A5D36F9B28B071EA003F59CB /* SearchUserParams.swift */,
+			);
+			path = SearchUser;
+			sourceTree = "<group>";
+		};
+		A5D36F8828B06A83003F59CB /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				A5D36F8B28B06AA4003F59CB /* BaseTargetType.swift */,
+				A5D36F8A28B06AA4003F59CB /* Networkable.swift */,
+				A5D36F8928B06AA3003F59CB /* ResponseData.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		A5D36F9928B07122003F59CB /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				A5D36FA528B09176003F59CB /* Controller */,
+				A5D36FA428B09121003F59CB /* ViewModel */,
+				A5D36F9A28B07136003F59CB /* Model */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		A5D36F9A28B07136003F59CB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A5D36FA028B08557003F59CB /* User.swift */,
+				A5D36FA228B0858F003F59CB /* Users.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A5D36F9D28B07344003F59CB /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				A5D36F9E28B07376003F59CB /* Encodable.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		A5D36FA428B09121003F59CB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A5AC324228B0962800E9588C /* Common */,
+				A5AC324028B095DF00E9588C /* GithubStarsFavoriteViewModel.swift */,
+				A538324028B0AC5600D001B8 /* GithubStarsFavoriteTabViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		A5D36FA528B09176003F59CB /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A5D36F5028B0604A003F59CB /* GithubStarsFavoriteViewController.swift */,
+				A5AC324B28B0A3B400E9588C /* GithubStarsFavoriteTabViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A5D36F4828B0604A003F59CB /* GitHubStartsFavorite */ = {
+		A5D36F4828B0604A003F59CB /* GitHubStarsFavorite */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A5D36F7328B0604D003F59CB /* Build configuration list for PBXNativeTarget "GitHubStartsFavorite" */;
+			buildConfigurationList = A5D36F7328B0604D003F59CB /* Build configuration list for PBXNativeTarget "GitHubStarsFavorite" */;
 			buildPhases = (
 				A5D36F4528B0604A003F59CB /* Sources */,
 				A5D36F4628B0604A003F59CB /* Frameworks */,
@@ -139,14 +264,19 @@
 			);
 			dependencies = (
 			);
-			name = GitHubStartsFavorite;
+			name = GitHubStarsFavorite;
+			packageProductDependencies = (
+				A542D28E28B093E300AE472E /* Moya */,
+				A5AC324628B096A800E9588C /* RxCocoa */,
+				A5AC324928B099C400E9588C /* Tabman */,
+			);
 			productName = GitHubStartsFavorite;
-			productReference = A5D36F4928B0604A003F59CB /* GitHubStartsFavorite.app */;
+			productReference = A5D36F4928B0604A003F59CB /* GitHubStarsFavorite.app */;
 			productType = "com.apple.product-type.application";
 		};
-		A5D36F5E28B0604D003F59CB /* GitHubStartsFavoriteTests */ = {
+		A5D36F5E28B0604D003F59CB /* GitHubStarsFavoriteTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A5D36F7628B0604D003F59CB /* Build configuration list for PBXNativeTarget "GitHubStartsFavoriteTests" */;
+			buildConfigurationList = A5D36F7628B0604D003F59CB /* Build configuration list for PBXNativeTarget "GitHubStarsFavoriteTests" */;
 			buildPhases = (
 				A5D36F5B28B0604D003F59CB /* Sources */,
 				A5D36F5C28B0604D003F59CB /* Frameworks */,
@@ -157,14 +287,14 @@
 			dependencies = (
 				A5D36F6128B0604D003F59CB /* PBXTargetDependency */,
 			);
-			name = GitHubStartsFavoriteTests;
+			name = GitHubStarsFavoriteTests;
 			productName = GitHubStartsFavoriteTests;
-			productReference = A5D36F5F28B0604D003F59CB /* GitHubStartsFavoriteTests.xctest */;
+			productReference = A5D36F5F28B0604D003F59CB /* GitHubStarsFavoriteTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		A5D36F6828B0604D003F59CB /* GitHubStartsFavoriteUITests */ = {
+		A5D36F6828B0604D003F59CB /* GitHubStarsFavoriteUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A5D36F7928B0604D003F59CB /* Build configuration list for PBXNativeTarget "GitHubStartsFavoriteUITests" */;
+			buildConfigurationList = A5D36F7928B0604D003F59CB /* Build configuration list for PBXNativeTarget "GitHubStarsFavoriteUITests" */;
 			buildPhases = (
 				A5D36F6528B0604D003F59CB /* Sources */,
 				A5D36F6628B0604D003F59CB /* Frameworks */,
@@ -175,9 +305,9 @@
 			dependencies = (
 				A5D36F6B28B0604D003F59CB /* PBXTargetDependency */,
 			);
-			name = GitHubStartsFavoriteUITests;
+			name = GitHubStarsFavoriteUITests;
 			productName = GitHubStartsFavoriteUITests;
-			productReference = A5D36F6928B0604D003F59CB /* GitHubStartsFavoriteUITests.xctest */;
+			productReference = A5D36F6928B0604D003F59CB /* GitHubStarsFavoriteUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -203,7 +333,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A5D36F4428B0604A003F59CB /* Build configuration list for PBXProject "GitHubStartsFavorite" */;
+			buildConfigurationList = A5D36F4428B0604A003F59CB /* Build configuration list for PBXProject "GitHubStarsFavorite" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -212,13 +342,19 @@
 				Base,
 			);
 			mainGroup = A5D36F4028B0604A003F59CB;
+			packageReferences = (
+				A542D28A28B0932400AE472E /* XCRemoteSwiftPackageReference "Rxswift" */,
+				A542D28D28B093E300AE472E /* XCRemoteSwiftPackageReference "Moya" */,
+				A5AC324528B096A800E9588C /* XCRemoteSwiftPackageReference "Rxswift" */,
+				A5AC324828B099C400E9588C /* XCRemoteSwiftPackageReference "Tabman" */,
+			);
 			productRefGroup = A5D36F4A28B0604A003F59CB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A5D36F4828B0604A003F59CB /* GitHubStartsFavorite */,
-				A5D36F5E28B0604D003F59CB /* GitHubStartsFavoriteTests */,
-				A5D36F6828B0604D003F59CB /* GitHubStartsFavoriteUITests */,
+				A5D36F4828B0604A003F59CB /* GitHubStarsFavorite */,
+				A5D36F5E28B0604D003F59CB /* GitHubStarsFavoriteTests */,
+				A5D36F6828B0604D003F59CB /* GitHubStarsFavoriteUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -255,8 +391,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A5D36F5128B0604A003F59CB /* ViewController.swift in Sources */,
+				A5D36F5128B0604A003F59CB /* GithubStarsFavoriteViewController.swift in Sources */,
+				A5AC324C28B0A3B400E9588C /* GithubStarsFavoriteTabViewController.swift in Sources */,
 				A5D36F4D28B0604A003F59CB /* AppDelegate.swift in Sources */,
+				A5D36F8D28B06AA4003F59CB /* ResponseData.swift in Sources */,
+				A5D36F9228B06B19003F59CB /* GithubSearchUsersTarget.swift in Sources */,
+				A5D36FA328B08590003F59CB /* Users.swift in Sources */,
+				A5D36F8E28B06AA4003F59CB /* Networkable.swift in Sources */,
+				A5D36F8028B069E0003F59CB /* GithubSearchUsersAPI.swift in Sources */,
+				A5AC324428B0963B00E9588C /* BaseViewModel.swift in Sources */,
+				A5D36F9C28B071EA003F59CB /* SearchUserParams.swift in Sources */,
+				A5D36F8F28B06AA4003F59CB /* BaseTargetType.swift in Sources */,
+				A5AC324128B095DF00E9588C /* GithubStarsFavoriteViewModel.swift in Sources */,
+				A538324128B0AC5600D001B8 /* GithubStarsFavoriteTabViewModel.swift in Sources */,
+				A5D36F9F28B07376003F59CB /* Encodable.swift in Sources */,
+				A5D36FA128B08557003F59CB /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,12 +431,12 @@
 /* Begin PBXTargetDependency section */
 		A5D36F6128B0604D003F59CB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A5D36F4828B0604A003F59CB /* GitHubStartsFavorite */;
+			target = A5D36F4828B0604A003F59CB /* GitHubStarsFavorite */;
 			targetProxy = A5D36F6028B0604D003F59CB /* PBXContainerItemProxy */;
 		};
 		A5D36F6B28B0604D003F59CB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A5D36F4828B0604A003F59CB /* GitHubStartsFavorite */;
+			target = A5D36F4828B0604A003F59CB /* GitHubStarsFavorite */;
 			targetProxy = A5D36F6A28B0604D003F59CB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -433,20 +582,22 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 3X3Z2KUUJ5;
+				DEVELOPMENT_TEAM = HSLFB553JW;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = GitHubStartsFavorite/Info.plist;
+				INFOPLIST_FILE = GitHubStarsFavorite/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = capbong.GitHubStartsFavorite;
+				PRODUCT_BUNDLE_IDENTIFIER = capbong.GitHubStarsFavorite;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -461,20 +612,22 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 3X3Z2KUUJ5;
+				DEVELOPMENT_TEAM = HSLFB553JW;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = GitHubStartsFavorite/Info.plist;
+				INFOPLIST_FILE = GitHubStarsFavorite/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = capbong.GitHubStartsFavorite;
+				PRODUCT_BUNDLE_IDENTIFIER = capbong.GitHubStarsFavorite;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -493,12 +646,12 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = capbong.GitHubStartsFavoriteTests;
+				PRODUCT_BUNDLE_IDENTIFIER = capbong.GitHubStarsFavoriteTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GitHubStartsFavorite.app/GitHubStartsFavorite";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GitHubStarsFavorite.app/GitHubStarsFavorite";
 			};
 			name = Debug;
 		};
@@ -513,12 +666,12 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = capbong.GitHubStartsFavoriteTests;
+				PRODUCT_BUNDLE_IDENTIFIER = capbong.GitHubStarsFavoriteTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GitHubStartsFavorite.app/GitHubStartsFavorite";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GitHubStarsFavorite.app/GitHubStarsFavorite";
 			};
 			name = Release;
 		};
@@ -531,12 +684,12 @@
 				DEVELOPMENT_TEAM = 3X3Z2KUUJ5;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = capbong.GitHubStartsFavoriteUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = capbong.GitHubStarsFavoriteUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = GitHubStartsFavorite;
+				TEST_TARGET_NAME = GitHubStarsFavorite;
 			};
 			name = Debug;
 		};
@@ -549,19 +702,19 @@
 				DEVELOPMENT_TEAM = 3X3Z2KUUJ5;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = capbong.GitHubStartsFavoriteUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = capbong.GitHubStarsFavoriteUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = GitHubStartsFavorite;
+				TEST_TARGET_NAME = GitHubStarsFavorite;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A5D36F4428B0604A003F59CB /* Build configuration list for PBXProject "GitHubStartsFavorite" */ = {
+		A5D36F4428B0604A003F59CB /* Build configuration list for PBXProject "GitHubStarsFavorite" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A5D36F7128B0604D003F59CB /* Debug */,
@@ -570,7 +723,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A5D36F7328B0604D003F59CB /* Build configuration list for PBXNativeTarget "GitHubStartsFavorite" */ = {
+		A5D36F7328B0604D003F59CB /* Build configuration list for PBXNativeTarget "GitHubStarsFavorite" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A5D36F7428B0604D003F59CB /* Debug */,
@@ -579,7 +732,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A5D36F7628B0604D003F59CB /* Build configuration list for PBXNativeTarget "GitHubStartsFavoriteTests" */ = {
+		A5D36F7628B0604D003F59CB /* Build configuration list for PBXNativeTarget "GitHubStarsFavoriteTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A5D36F7728B0604D003F59CB /* Debug */,
@@ -588,7 +741,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A5D36F7928B0604D003F59CB /* Build configuration list for PBXNativeTarget "GitHubStartsFavoriteUITests" */ = {
+		A5D36F7928B0604D003F59CB /* Build configuration list for PBXNativeTarget "GitHubStarsFavoriteUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A5D36F7A28B0604D003F59CB /* Debug */,
@@ -598,6 +751,59 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A542D28A28B0932400AE472E /* XCRemoteSwiftPackageReference "Rxswift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/reactiveX/Rxswift.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		A542D28D28B093E300AE472E /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		A5AC324528B096A800E9588C /* XCRemoteSwiftPackageReference "Rxswift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/reactiveX/Rxswift.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		A5AC324828B099C400E9588C /* XCRemoteSwiftPackageReference "Tabman" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/uias/Tabman";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A542D28E28B093E300AE472E /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A542D28D28B093E300AE472E /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+		A5AC324628B096A800E9588C /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A542D28A28B0932400AE472E /* XCRemoteSwiftPackageReference "Rxswift" */;
+			productName = RxCocoa;
+		};
+		A5AC324928B099C400E9588C /* Tabman */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A5AC324828B099C400E9588C /* XCRemoteSwiftPackageReference "Tabman" */;
+			productName = Tabman;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A5D36F4128B0604A003F59CB /* Project object */;
 }

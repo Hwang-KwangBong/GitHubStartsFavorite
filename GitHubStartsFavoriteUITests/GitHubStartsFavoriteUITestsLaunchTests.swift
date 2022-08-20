@@ -1,13 +1,13 @@
 //
-//  GitHubStartsFavoriteUITestsLaunchTests.swift
-//  GitHubStartsFavoriteUITests
+//  GitHubStarsFavoriteUITestsLaunchTests.swift
+//  GitHubStarsFavoriteUITests
 //
 //  Created by kwangbong hwang on 2022/08/20.
 //
 
 import XCTest
 
-class GitHubStartsFavoriteUITestsLaunchTests: XCTestCase {
+class GitHubStarsFavoriteUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true

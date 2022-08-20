@@ -1,13 +1,13 @@
 //
-//  GitHubStartsFavoriteUITests.swift
-//  GitHubStartsFavoriteUITests
+//  GitHubStarsFavoriteUITests.swift
+//  GitHubStarsFavoriteUITests
 //
 //  Created by kwangbong hwang on 2022/08/20.
 //
 
 import XCTest
 
-class GitHubStartsFavoriteUITests: XCTestCase {
+class GitHubStarsFavoriteUITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  GitHubStartsFavorite
+//  GitHubStarsFavorite
 //
 //  Created by kwangbong hwang on 2022/08/20.
 //
