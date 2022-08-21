@@ -59,7 +59,10 @@ class GithubStarsFavoriteLocalViewController: UIViewController {
             .debounce(RxTimeInterval.milliseconds(300), scheduler: MainScheduler.instance)
             .distinctUntilChanged()   // 같은 아이템을 받지 않는기능
             .subscribe(onNext:  { t in
+                
                 print("search capbong \(self.viewModelGithubStarsFavoriteLocal.filteringLocalUsers)")
+                let filterArray = self.viewModelGithubStarsFavoriteLocal.filteringLocalUsers.filter({ $0.name.contains(t)})
+                self.viewModelGithubStarsFavoriteLocal.modelGithubStarsFavoriteLocal.onNext(filterArray)
             })
             .disposed(by: disposeBag)
         
@@ -76,7 +79,7 @@ class GithubStarsFavoriteLocalViewController: UIViewController {
             cell.imageViewProfile.kf.setImage(with: imageURL)
             cell.isFavorite = localUser.isFavorite
             cell.closure = { (isFavorite) in
-//                self.viewModelGithubStarsFavoriteAPI.userData[indexPath.row].isFavorite = isFavorite
+
                 let localUser = LocalUser(id:localUser.id,name: localUser.name, imageUrl: localUser.imageUrl, isFavorite: isFavorite)
                 if isFavorite == true {
                     Current.localUsers().insertOne(localUser).subscribe({ result in
@@ -87,22 +90,24 @@ class GithubStarsFavoriteLocalViewController: UIViewController {
                         print("Delete \(result)")
                     }).disposed(by: self.disposeBag)
                 }
+                self.viewModelGithubStarsFavoriteLocal.localUsers.subscribe(onNext: { userdata in
+                    self.viewModelGithubStarsFavoriteLocal.filteringLocalUsers = userdata
+                    self.viewModelGithubStarsFavoriteLocal.modelGithubStarsFavoriteLocal.onNext(userdata)
+                }).disposed(by: self.disposeBag)
             }
             return cell
         })
-        
-        viewModelGithubStarsFavoriteLocal
-            .localUsers
-            .asDriver(onErrorJustReturn: [])
-            .map { [Section(items: $0)] }
-            .drive(tableViewFavoriteLocal.rx.items(dataSource: dataSource))
-            .disposed(by: disposeBag)
 
+        viewModelGithubStarsFavoriteLocal
+            .modelGithubStarsFavoriteLocal
+            .map { [Section(items: $0)] }
+            .bind(to: tableViewFavoriteLocal.rx.items(dataSource: dataSource))
+            .disposed(by: disposeBag)
+        
         self.viewModelGithubStarsFavoriteLocal.localUsers.subscribe(onNext: { userdata in
             self.viewModelGithubStarsFavoriteLocal.filteringLocalUsers = userdata
         }).disposed(by: self.disposeBag)
-        
-            
+                    
     }
 }
 
