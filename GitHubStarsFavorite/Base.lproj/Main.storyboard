@@ -137,6 +137,10 @@
                             <constraint firstItem="O9f-4X-XPd" firstAttribute="top" secondItem="nDk-yA-uat" secondAttribute="top" id="e1j-lt-EWt"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableViewFavoriteLocal" destination="cx1-bG-uEB" id="nud-gx-Mhj"/>
+                        <outlet property="textFieldSearch" destination="O9f-4X-XPd" id="eKg-0G-rna"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fCh-q7-SBk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

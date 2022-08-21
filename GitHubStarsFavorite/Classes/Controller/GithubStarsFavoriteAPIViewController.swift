@@ -122,6 +122,22 @@ class GithubStarsFavoriteAPIViewController: UIViewController {
                 cell.labelName.text = element.name
                 guard let imageURL = URL(string: element.imageUrl) else { return cell}
                 cell.imageViewProfile.kf.setImage(with: imageURL)
+                if self.viewModelGithubStarsFavoriteAPI.userData.isEmpty == false {
+                    cell.isFavorite = self.viewModelGithubStarsFavoriteAPI.userData[row].isFavorite
+                }
+                cell.closure = { (isFavorite) in
+                    self.viewModelGithubStarsFavoriteAPI.userData[row].isFavorite = true
+                    let localUser = LocalUser(name: element.name, imageUrl: element.imageUrl, isFavorite: isFavorite)
+                    if isFavorite == true {
+                        Current.localUsers().insertOne(localUser).subscribe({ result in
+                            print("Insert \(result)")
+                        }).disposed(by: self.disposeBag)
+                    } else {
+                        Current.localUsers().deleteOne(localUser).subscribe({ result in
+                            print("Delete \(result)")
+                        }).disposed(by: self.disposeBag)
+                    }
+                }
                 return cell
             }.disposed(by: disposeBag)
         

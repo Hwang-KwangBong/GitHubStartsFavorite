@@ -26,9 +26,13 @@ struct LocalUsers {
     func deleteOne(_ localUser: LocalUser) -> Single<Void> {
         database.rx.write(updates: { db in try self._deleteOne(db, localUser: localUser) })
     }
-        
+    
+    func insertOne(_ localUser: LocalUser) -> Single<Void> {
+        database.rx.write(updates: { db in try self._insertOne(db, localUser: localUser) })
+    }
+    
     /// An observable that tracks changes in the players
-    func playersOrderedByName() -> Observable<[LocalUser]> {
+    func localUsersOrderedByName() -> Observable<[LocalUser]> {
         ValueObservation
             .tracking(LocalUser.all().orderByName().fetchAll)
             .rx.observe(in: database)
@@ -42,6 +46,11 @@ struct LocalUsers {
     
     private func _deleteOne(_ db: Database, localUser: LocalUser) throws {
         try localUser.delete(db)
+    }
+    
+    private func _insertOne(_ db: Database, localUser: LocalUser) throws {
+        var localUserDB = localUser
+        try localUserDB.insert(db)
     }
     
 }
