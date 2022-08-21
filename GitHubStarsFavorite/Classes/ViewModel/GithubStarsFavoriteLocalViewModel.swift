@@ -10,7 +10,10 @@ import RxCocoa
 import RxSwift
 
 class GithubStarsFavoriteLocalViewModel: BaseViewModel {
+    let disposeBag = DisposeBag()
     var localUsers: Observable<[LocalUser]>
+    var filteringLocalUsers = [LocalUser]()
+    let modelGithubStarsFavoriteLocal:PublishSubject<[LocalUser]> = PublishSubject()
     
     private enum Ordering: Equatable {
         case byName
@@ -26,15 +29,6 @@ class GithubStarsFavoriteLocalViewModel: BaseViewModel {
                     return Current.localUsers().localUsersOrderedByName()
                 }
             }
+
     }
-//    let data = Observable<[String]>.just(["cell1","cell2","cell3","cell1","cell2","cell3","cell1","cell2","cell3"])
-//    let localUserData =  Current.localUsers().localUsersOrderedByName().asObservable()
-//    let modelGithubStarsFavoriteLocal:PublishSubject<[LocalUser]> = PublishSubject()
-//
-//    func getLocalUserList() {
-//        let localUserDB = Current.localUsers().localUsersOrderedByName()
-//
-//        modelGithubStarsFavoriteLocal.onNext(Observable<[LocalUser]>.of(localUserDB) )
-//
-//    }
 }

@@ -123,9 +123,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="cx1-bG-uEB">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="cx1-bG-uEB">
                                 <rect key="frame" x="0.0" y="84" width="414" height="778"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
@@ -133,8 +132,12 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="O9f-4X-XPd" firstAttribute="trailing" secondItem="nDk-yA-uat" secondAttribute="trailing" id="1GI-Hg-2Y1"/>
+                            <constraint firstItem="cx1-bG-uEB" firstAttribute="bottom" secondItem="nDk-yA-uat" secondAttribute="bottom" id="4AE-Sv-UVE"/>
+                            <constraint firstItem="cx1-bG-uEB" firstAttribute="leading" secondItem="nDk-yA-uat" secondAttribute="leading" id="APG-dq-glw"/>
                             <constraint firstItem="O9f-4X-XPd" firstAttribute="leading" secondItem="nDk-yA-uat" secondAttribute="leading" id="Nak-ae-YDm"/>
+                            <constraint firstItem="cx1-bG-uEB" firstAttribute="top" secondItem="O9f-4X-XPd" secondAttribute="bottom" id="WZ6-xL-J6V"/>
                             <constraint firstItem="O9f-4X-XPd" firstAttribute="top" secondItem="nDk-yA-uat" secondAttribute="top" id="e1j-lt-EWt"/>
+                            <constraint firstItem="cx1-bG-uEB" firstAttribute="trailing" secondItem="nDk-yA-uat" secondAttribute="trailing" id="rj8-Yo-WUf"/>
                         </constraints>
                     </view>
                     <connections>

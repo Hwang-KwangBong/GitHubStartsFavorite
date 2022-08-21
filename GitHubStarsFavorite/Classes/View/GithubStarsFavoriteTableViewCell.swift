@@ -11,7 +11,11 @@ import RxCocoa
 
 class GithubStarsFavoriteTableViewCell: UITableViewCell {
     var closure:((Bool) -> Void)? = nil
-    var isFavorite:Bool = false
+    var isFavorite:Bool = false {
+        willSet(newValue) {
+            buttonFavorite.isSelected = newValue
+        }        
+    }
     
     @IBOutlet weak var imageViewProfile: UIImageView!
     @IBOutlet weak var labelName: UILabel!

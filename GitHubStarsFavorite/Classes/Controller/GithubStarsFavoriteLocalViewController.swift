@@ -47,10 +47,9 @@ class GithubStarsFavoriteLocalViewController: UIViewController {
         refreshControl
             .rx
             .controlEvent(.valueChanged)
-            .debounce(RxTimeInterval.milliseconds(300), scheduler: MainScheduler.instance)
             .subscribe(onNext: { t in
                 refreshControl.endRefreshing()
-                
+                self.tableViewFavoriteLocal.reloadData()
             }).disposed(by: disposeBag)
         self.tableViewFavoriteLocal.refreshControl = refreshControl
         
@@ -59,8 +58,8 @@ class GithubStarsFavoriteLocalViewController: UIViewController {
         self.textFieldSearch.rx.text.orEmpty
             .debounce(RxTimeInterval.milliseconds(300), scheduler: MainScheduler.instance)
             .distinctUntilChanged()   // 같은 아이템을 받지 않는기능
-            .subscribe(onNext: { t in
-
+            .subscribe(onNext:  { t in
+                print("search capbong \(self.viewModelGithubStarsFavoriteLocal.filteringLocalUsers)")
             })
             .disposed(by: disposeBag)
         
@@ -75,6 +74,20 @@ class GithubStarsFavoriteLocalViewController: UIViewController {
             cell.labelName.text = localUser.name
             guard let imageURL = URL(string: localUser.imageUrl) else { return cell}
             cell.imageViewProfile.kf.setImage(with: imageURL)
+            cell.isFavorite = localUser.isFavorite
+            cell.closure = { (isFavorite) in
+//                self.viewModelGithubStarsFavoriteAPI.userData[indexPath.row].isFavorite = isFavorite
+                let localUser = LocalUser(id:localUser.id,name: localUser.name, imageUrl: localUser.imageUrl, isFavorite: isFavorite)
+                if isFavorite == true {
+                    Current.localUsers().insertOne(localUser).subscribe({ result in
+                        print("Insert \(result)")
+                    }).disposed(by: self.disposeBag)
+                } else {
+                    Current.localUsers().deleteOne(localUser).subscribe({ result in
+                        print("Delete \(result)")
+                    }).disposed(by: self.disposeBag)
+                }
+            }
             return cell
         })
         
@@ -84,80 +97,12 @@ class GithubStarsFavoriteLocalViewController: UIViewController {
             .map { [Section(items: $0)] }
             .drive(tableViewFavoriteLocal.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
-//        { tableView, row, element in
-//                return UITableViewCell()
-////                guard let cell = tableView.dequeueReusableCell(withIdentifier: "githubStarsFavoriteTableViewCellID")
-////                        as? GithubStarsFavoriteTableViewCell else { return UITableViewCell() }
-////                cell.labelName.text = element.name
-////                guard let imageURL = URL(string: element.imageUrl) else { return cell}
-////                cell.imageViewProfile.kf.setImage(with: imageURL)
-////    //            cell.closure = { (isFavorite) in
-////    //                let localUser = LocalUser(name: element.name, imageUrl: element.imageUrl, isFavorite: isFavorite)
-////    //                if isFavorite == true {
-////    //                    Current.localUsers().insertOne(localUser).subscribe({ result in
-////    //                        print(result)
-////    //                    }).disposed(by: self.disposeBag)
-////    //                } else {
-////    //                    Current.localUsers().deleteOne(localUser).subscribe({ result in
-////    //                        print(result)
-////    //                    }).disposed(by: self.disposeBag)
-////    //                }
-////                }
-////                return cell
-//            }.disposed(by: disposeBag)
-//        viewModelGithubStarsFavoriteLocal.localUserData.bind(onNext: tableViewFavoriteLocal.rx.items) { tableView, row, element in
-//            guard let cell = tableView.dequeueReusableCell(withIdentifier: "githubStarsFavoriteTableViewCellID")
-//                    as? GithubStarsFavoriteTableViewCell else { return UITableViewCell() }
-//            cell.labelName.text = element.name
-//            guard let imageURL = URL(string: element.imageUrl) else { return cell}
-//            cell.imageViewProfile.kf.setImage(with: imageURL)
-////            cell.closure = { (isFavorite) in
-////                let localUser = LocalUser(name: element.name, imageUrl: element.imageUrl, isFavorite: isFavorite)
-////                if isFavorite == true {
-////                    Current.localUsers().insertOne(localUser).subscribe({ result in
-////                        print(result)
-////                    }).disposed(by: self.disposeBag)
-////                } else {
-////                    Current.localUsers().deleteOne(localUser).subscribe({ result in
-////                        print(result)
-////                    }).disposed(by: self.disposeBag)
-////                }
-//            }
-//            return cell
-//        }.disposed(by: disposeBag)
-//        viewModelGithubStarsFavoriteLocal
-//            .modelGithubStarsFavoriteAPI
-//            .bind(to: tableViewFavoriteLocal.rx.items) { tableView, row, element in
-//                guard let cell = tableView.dequeueReusableCell(withIdentifier: "githubStarsFavoriteTableViewCellID")
-//                        as? GithubStarsFavoriteTableViewCell else { return UITableViewCell() }
-//                cell.labelName.text = element.name
-//                guard let imageURL = URL(string: element.imageUrl) else { return cell}
-//                cell.imageViewProfile.kf.setImage(with: imageURL)
-//                cell.closure = { (isFavorite) in
-//                    let localUser = LocalUser(name: element.name, imageUrl: element.imageUrl, isFavorite: isFavorite)
-//                    if isFavorite == true {
-//                        Current.localUsers().insertOne(localUser).subscribe({ result in
-//                            print(result)
-//                        }).disposed(by: self.disposeBag)
-//                    } else {
-//                        Current.localUsers().deleteOne(localUser).subscribe({ result in
-//                            print(result)
-//                        }).disposed(by: self.disposeBag)
-//                    }
-//                }
-//                return cell
-//            }.disposed(by: disposeBag)
-//
-//        viewModelGithubStarsFavoriteLocal
-//            .error
-//            .observe(on: MainScheduler.instance)
-//            .subscribe(onNext: { error in
-//                switch error {
-//                    case commonError.userMessage(let message):
-//                        self.showAlert(title: nil,message: message)
-//                }
-//
-//            }).disposed(by: disposeBag)
+
+        self.viewModelGithubStarsFavoriteLocal.localUsers.subscribe(onNext: { userdata in
+            self.viewModelGithubStarsFavoriteLocal.filteringLocalUsers = userdata
+        }).disposed(by: self.disposeBag)
+        
+            
     }
 }
 

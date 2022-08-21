@@ -126,8 +126,8 @@ class GithubStarsFavoriteAPIViewController: UIViewController {
                     cell.isFavorite = self.viewModelGithubStarsFavoriteAPI.userData[row].isFavorite
                 }
                 cell.closure = { (isFavorite) in
-                    self.viewModelGithubStarsFavoriteAPI.userData[row].isFavorite = true
-                    let localUser = LocalUser(name: element.name, imageUrl: element.imageUrl, isFavorite: isFavorite)
+                    self.viewModelGithubStarsFavoriteAPI.userData[row].isFavorite = isFavorite
+                    let localUser = LocalUser(id:element.id,name: element.name, imageUrl: element.imageUrl, isFavorite: isFavorite)
                     if isFavorite == true {
                         Current.localUsers().insertOne(localUser).subscribe({ result in
                             print("Insert \(result)")
