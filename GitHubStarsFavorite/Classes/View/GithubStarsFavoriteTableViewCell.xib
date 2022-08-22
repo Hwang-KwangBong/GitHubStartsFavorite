@@ -10,31 +10,31 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="githubStarsFavoriteTableViewCellID" rowHeight="97" id="95e-9J-5F3" customClass="GithubStarsFavoriteTableViewCell" customModule="GitHubStarsFavorite" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="400" height="97"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="githubStarsFavoriteTableViewCellID" rowHeight="134" id="95e-9J-5F3" customClass="GithubStarsFavoriteTableViewCell" customModule="GitHubStarsFavorite" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="400" height="134"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="95e-9J-5F3" id="Y29-Ff-WgO">
-                <rect key="frame" x="0.0" y="0.0" width="400" height="97"/>
+                <rect key="frame" x="0.0" y="0.0" width="400" height="134"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5dT-hh-fPP">
-                        <rect key="frame" x="0.0" y="0.0" width="400" height="45.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="134"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="t8Y-Sa-zmi">
-                                <rect key="frame" x="8" y="5" width="80" height="80"/>
+                                <rect key="frame" x="8" y="44" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="0x6-aS-zGW"/>
                                     <constraint firstAttribute="width" constant="80" id="VPm-gu-POP"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="김드라마" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SgR-sd-mq3">
-                                <rect key="frame" x="113" y="5" width="224" height="20.5"/>
+                                <rect key="frame" x="113" y="44" width="224" height="70"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aPZ-i3-E21">
-                                <rect key="frame" x="342" y="-10" width="50" height="50.5"/>
+                                <rect key="frame" x="342" y="54" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="L7V-7l-DQd"/>
                                     <constraint firstAttribute="height" constant="50" id="odt-uJ-fmH"/>
@@ -46,6 +46,23 @@
                                     <action selector="favoriteAction:" destination="95e-9J-5F3" eventType="touchUpInside" id="0bz-rg-xFZ"/>
                                 </connections>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="CXn-Qv-wkJ">
+                                <rect key="frame" x="13" y="13" width="374" height="21"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WGh-Ha-iG7">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="WGh-Ha-iG7" secondAttribute="trailing" id="SgM-vg-h7K"/>
+                                    <constraint firstItem="WGh-Ha-iG7" firstAttribute="leading" secondItem="CXn-Qv-wkJ" secondAttribute="leading" id="th6-Cg-uee"/>
+                                    <constraint firstItem="WGh-Ha-iG7" firstAttribute="top" secondItem="CXn-Qv-wkJ" secondAttribute="top" id="xHN-4a-Zq9"/>
+                                    <constraint firstAttribute="bottom" secondItem="WGh-Ha-iG7" secondAttribute="bottom" id="z3S-IC-Ixs"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
@@ -53,11 +70,14 @@
                             <constraint firstItem="t8Y-Sa-zmi" firstAttribute="leading" secondItem="5dT-hh-fPP" secondAttribute="leadingMargin" id="4TU-F0-02g"/>
                             <constraint firstItem="aPZ-i3-E21" firstAttribute="leading" secondItem="SgR-sd-mq3" secondAttribute="trailing" priority="750" constant="5" id="7aC-0j-FDb"/>
                             <constraint firstItem="aPZ-i3-E21" firstAttribute="centerY" secondItem="SgR-sd-mq3" secondAttribute="centerY" id="83a-rG-BZx"/>
-                            <constraint firstItem="SgR-sd-mq3" firstAttribute="top" secondItem="5dT-hh-fPP" secondAttribute="top" constant="5" id="C6j-jb-VRg"/>
+                            <constraint firstItem="CXn-Qv-wkJ" firstAttribute="top" secondItem="5dT-hh-fPP" secondAttribute="topMargin" constant="5" id="EhK-rD-ALh"/>
+                            <constraint firstItem="CXn-Qv-wkJ" firstAttribute="leading" secondItem="5dT-hh-fPP" secondAttribute="leadingMargin" constant="5" id="HzU-sj-4e6"/>
                             <constraint firstAttribute="bottom" secondItem="t8Y-Sa-zmi" secondAttribute="bottom" constant="10" id="Iwe-be-zpt"/>
-                            <constraint firstItem="t8Y-Sa-zmi" firstAttribute="top" secondItem="5dT-hh-fPP" secondAttribute="top" constant="5" id="UvO-AU-FUT"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="CXn-Qv-wkJ" secondAttribute="trailing" constant="5" id="M6v-fN-w48"/>
                             <constraint firstAttribute="trailingMargin" secondItem="aPZ-i3-E21" secondAttribute="trailing" id="dEx-cM-Pnv"/>
                             <constraint firstAttribute="bottom" secondItem="SgR-sd-mq3" secondAttribute="bottom" constant="20" id="ryi-e2-Fcd"/>
+                            <constraint firstItem="t8Y-Sa-zmi" firstAttribute="top" secondItem="CXn-Qv-wkJ" secondAttribute="bottom" constant="10" id="taM-YT-Spe"/>
+                            <constraint firstItem="SgR-sd-mq3" firstAttribute="top" secondItem="CXn-Qv-wkJ" secondAttribute="bottom" constant="10" id="vHC-BO-MCX"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -71,9 +91,10 @@
             <connections>
                 <outlet property="buttonFavorite" destination="aPZ-i3-E21" id="oqK-u6-7AA"/>
                 <outlet property="imageViewProfile" destination="t8Y-Sa-zmi" id="6ix-jf-O9i"/>
+                <outlet property="labelCategory" destination="WGh-Ha-iG7" id="NHp-Vb-dy1"/>
                 <outlet property="labelName" destination="SgR-sd-mq3" id="9Wj-la-lN4"/>
             </connections>
-            <point key="canvasLocation" x="-230" y="0.0"/>
+            <point key="canvasLocation" x="-230.43478260869566" y="-12.723214285714285"/>
         </tableViewCell>
     </objects>
     <resources>

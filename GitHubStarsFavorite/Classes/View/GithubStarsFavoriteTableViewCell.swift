@@ -14,12 +14,22 @@ class GithubStarsFavoriteTableViewCell: UITableViewCell {
     var isFavorite:Bool = false {
         willSet(newValue) {
             buttonFavorite.isSelected = newValue
-        }        
+        }
+    }
+    
+    var isCategory:Bool = false {
+        willSet(newValue) {
+            DispatchQueue.main.async {
+                self.labelCategory.isHidden = newValue
+            }
+            
+        }
     }
     
     @IBOutlet weak var imageViewProfile: UIImageView!
     @IBOutlet weak var labelName: UILabel!
     @IBOutlet weak var buttonFavorite: UIButton!
+    @IBOutlet weak var labelCategory: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

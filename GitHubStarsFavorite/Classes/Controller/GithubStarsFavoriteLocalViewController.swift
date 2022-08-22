@@ -75,6 +75,19 @@ class GithubStarsFavoriteLocalViewController: UIViewController {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "githubStarsFavoriteTableViewCellID")
                     as? GithubStarsFavoriteTableViewCell else { return UITableViewCell() }
             cell.labelName.text = localUser.name
+            if let firstChar = localUser.name.first {
+                var preCategoryName = ""
+                if indexPath.row != 0 {
+                    preCategoryName = String(section.items[indexPath.row - 1].name.first!)
+                }
+                let stringFirst = String(firstChar)
+                if stringFirst.isEmpty == false && preCategoryName == stringFirst {
+                    cell.isCategory = true
+                } else {
+                    cell.isCategory = false
+                    cell.labelCategory.text =  stringFirst
+                }
+            }
             guard let imageURL = URL(string: localUser.imageUrl) else { return cell}
             cell.imageViewProfile.kf.setImage(with: imageURL)
             cell.isFavorite = localUser.isFavorite
