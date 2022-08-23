@@ -13,7 +13,7 @@ import Kingfisher
 class GithubStarsFavoriteAPIViewController: UIViewController {
     
     let disposeBag = DisposeBag()
-    let viewModelGithubStarsFavoriteAPI:GithubStarsFavoriteAPIViewModel = GithubStarsFavoriteAPIViewModel()
+//    let viewModelGithubStarsFavoriteAPI:GithubStarsFavoriteAPIViewModel = GithubStarsFavoriteAPIViewModel()
     
     @IBOutlet weak var tableViewFavoriteAPI: UITableView!
     @IBOutlet weak var textFieldSearch: UITextField!
@@ -47,16 +47,16 @@ class GithubStarsFavoriteAPIViewController: UIViewController {
           .withUnretained(self)
           .bind { ss, row in
               
-              guard row == ss.viewModelGithubStarsFavoriteAPI.userData.count - 1 else { return }
+              guard row == DataManager.shared.viewModelFavoriteAPI.userData.count - 1 else { return }
               guard let text = self.textFieldSearch.text else {
-                  self.viewModelGithubStarsFavoriteAPI.clearList()
+                  DataManager.shared.viewModelFavoriteAPI.clearList()
                   return
               }
-              self.viewModelGithubStarsFavoriteAPI.page += 1
-              ss.viewModelGithubStarsFavoriteAPI
+              DataManager.shared.viewModelFavoriteAPI.page += 1
+              DataManager.shared.viewModelFavoriteAPI
                   .requestUserList(params: SearchUserParams(query: text,
-                                                            page: self.viewModelGithubStarsFavoriteAPI.page,
-                                                            perPage: self.viewModelGithubStarsFavoriteAPI.perPage))
+                                                            page: DataManager.shared.viewModelFavoriteAPI.page,
+                                                            perPage: DataManager.shared.viewModelFavoriteAPI.perPage))
           }
           .disposed(by: self.disposeBag)
     }
@@ -70,22 +70,22 @@ class GithubStarsFavoriteAPIViewController: UIViewController {
             .debounce(RxTimeInterval.milliseconds(300), scheduler: MainScheduler.instance)
             .subscribe(onNext: { t in
                 refreshControl.endRefreshing()
-                self.viewModelGithubStarsFavoriteAPI.userData = [User]()
-                self.viewModelGithubStarsFavoriteAPI.page = 1
+                DataManager.shared.viewModelFavoriteAPI.userData = [User]()
+                DataManager.shared.viewModelFavoriteAPI.page = 1
                 guard let text = self.textFieldSearch.text else {
-                    self.viewModelGithubStarsFavoriteAPI.clearList()
+                    DataManager.shared.viewModelFavoriteAPI.clearList()
                     return
                 }
                 
                 if text.isEmpty == true {
-                    self.viewModelGithubStarsFavoriteAPI.clearList()
+                    DataManager.shared.viewModelFavoriteAPI.clearList()
                     return
                 }
                 
-                self.viewModelGithubStarsFavoriteAPI
+                DataManager.shared.viewModelFavoriteAPI
                     .requestUserList(params: SearchUserParams(query: text,
-                                                              page: self.viewModelGithubStarsFavoriteAPI.page,
-                                                              perPage: self.viewModelGithubStarsFavoriteAPI.perPage))
+                                                              page: DataManager.shared.viewModelFavoriteAPI.page,
+                                                              perPage: DataManager.shared.viewModelFavoriteAPI.perPage))
                 
             }).disposed(by: disposeBag)
         self.tableViewFavoriteAPI.refreshControl = refreshControl
@@ -98,14 +98,14 @@ class GithubStarsFavoriteAPIViewController: UIViewController {
             .distinctUntilChanged()   // 같은 아이템을 받지 않는기능
             .subscribe(onNext: { t in
                 if t.isEmpty {
-                    self.viewModelGithubStarsFavoriteAPI.clearList()
+                    DataManager.shared.viewModelFavoriteAPI.clearList()
                     return
                 }
-                self.viewModelGithubStarsFavoriteAPI.clearList()
-                self.viewModelGithubStarsFavoriteAPI
+                DataManager.shared.viewModelFavoriteAPI.clearList()
+                DataManager.shared.viewModelFavoriteAPI
                     .requestUserList(params: SearchUserParams(query: t,
-                                                              page: self.viewModelGithubStarsFavoriteAPI.page,
-                                                              perPage: self.viewModelGithubStarsFavoriteAPI.perPage))
+                                                              page: DataManager.shared.viewModelFavoriteAPI.page,
+                                                              perPage: DataManager.shared.viewModelFavoriteAPI.perPage))
             })
             .disposed(by: disposeBag)
         
@@ -114,7 +114,7 @@ class GithubStarsFavoriteAPIViewController: UIViewController {
     
     func setBinding() {
         
-        viewModelGithubStarsFavoriteAPI
+        DataManager.shared.viewModelFavoriteAPI
             .modelGithubStarsFavoriteAPI
             .bind(to: tableViewFavoriteAPI.rx.items) { tableView, row, element in
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: "githubStarsFavoriteTableViewCellID")
@@ -122,11 +122,11 @@ class GithubStarsFavoriteAPIViewController: UIViewController {
                 cell.labelName.text = element.name
                 guard let imageURL = URL(string: element.imageUrl) else { return cell}
                 cell.imageViewProfile.kf.setImage(with: imageURL)
-                if self.viewModelGithubStarsFavoriteAPI.userData.isEmpty == false {
-                    cell.isFavorite = self.viewModelGithubStarsFavoriteAPI.userData[row].isFavorite
+                if DataManager.shared.viewModelFavoriteAPI.userData.isEmpty == false {
+                    cell.isFavorite = DataManager.shared.viewModelFavoriteAPI.userData[row].isFavorite
                 }
                 cell.closure = { (isFavorite) in
-                    self.viewModelGithubStarsFavoriteAPI.userData[row].isFavorite = isFavorite
+                    DataManager.shared.viewModelFavoriteAPI.userData[row].isFavorite = isFavorite
                     let localUser = LocalUser(id:element.id,name: element.name, imageUrl: element.imageUrl, isFavorite: isFavorite)
                     if isFavorite == true {
                         Current.localUsers().insertOne(localUser).subscribe({ result in
@@ -141,7 +141,7 @@ class GithubStarsFavoriteAPIViewController: UIViewController {
                 return cell
             }.disposed(by: disposeBag)
         
-        viewModelGithubStarsFavoriteAPI
+        DataManager.shared.viewModelFavoriteAPI
             .error
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { error in

@@ -14,7 +14,7 @@ import RxDataSources
 class GithubStarsFavoriteLocalViewController: UIViewController {
 
     let disposeBag = DisposeBag()
-    let viewModelGithubStarsFavoriteLocal:GithubStarsFavoriteLocalViewModel = GithubStarsFavoriteLocalViewModel()
+//    let viewModelGithubStarsFavoriteLocal:GithubStarsFavoriteLocalViewModel = GithubStarsFavoriteLocalViewModel()
     
     @IBOutlet weak var tableViewFavoriteLocal: UITableView!
     @IBOutlet weak var textFieldSearch: UITextField!
@@ -60,9 +60,9 @@ class GithubStarsFavoriteLocalViewController: UIViewController {
             .distinctUntilChanged()   // 같은 아이템을 받지 않는기능
             .subscribe(onNext:  { t in
                 
-                print("search capbong \(self.viewModelGithubStarsFavoriteLocal.filteringLocalUsers)")
-                let filterArray = self.viewModelGithubStarsFavoriteLocal.filteringLocalUsers.filter({ $0.name.contains(t)})
-                self.viewModelGithubStarsFavoriteLocal.modelGithubStarsFavoriteLocal.onNext(filterArray)
+                print("search capbong \(DataManager.shared.viewModelFavoriteLocal.filteringLocalUsers)")
+                let filterArray = DataManager.shared.viewModelFavoriteLocal.filteringLocalUsers.filter({ $0.name.contains(t)})
+                DataManager.shared.viewModelFavoriteLocal.modelGithubStarsFavoriteLocal.onNext(filterArray)
             })
             .disposed(by: disposeBag)
         
@@ -94,31 +94,40 @@ class GithubStarsFavoriteLocalViewController: UIViewController {
             cell.closure = { (isFavorite) in
 
                 let localUser = LocalUser(id:localUser.id,name: localUser.name, imageUrl: localUser.imageUrl, isFavorite: isFavorite)
-                if isFavorite == true {
-                    Current.localUsers().insertOne(localUser).subscribe({ result in
-                        print("Insert \(result)")
-                    }).disposed(by: self.disposeBag)
-                } else {
+                DataManager.shared.setIsFavorite(localUser: localUser)
+//                if isFavorite == true {
+//                    Current.localUsers().insertOne(localUser).subscribe({ result in
+//                        print("Insert \(result)")
+//                    }).disposed(by: self.disposeBag)
+//                } else {
                     Current.localUsers().deleteOne(localUser).subscribe({ result in
                         print("Delete \(result)")
                     }).disposed(by: self.disposeBag)
-                }
-                self.viewModelGithubStarsFavoriteLocal.localUsers.subscribe(onNext: { userdata in
-                    self.viewModelGithubStarsFavoriteLocal.filteringLocalUsers = userdata
-                    self.viewModelGithubStarsFavoriteLocal.modelGithubStarsFavoriteLocal.onNext(userdata)
+//                }
+                DataManager.shared.viewModelFavoriteLocal.localUsers.subscribe(onNext: { userdata in
+                    guard let text = self.textFieldSearch.text else {
+                        return
+                    }
+                    DataManager.shared.viewModelFavoriteLocal.originLocalUsers = userdata
+                    DataManager.shared.viewModelFavoriteLocal.filteringLocalUsers = userdata
+                    let filterArray = DataManager.shared.viewModelFavoriteLocal.filteringLocalUsers.filter({ $0.name.contains(text)})
+                    DataManager.shared.viewModelFavoriteLocal.modelGithubStarsFavoriteLocal.onNext(filterArray)
+//                    self.viewModelGithubStarsFavoriteLocal.modelGithubStarsFavoriteLocal.onNext(userdata)
+                    DataManager.shared.syncAPIUserAndLocalUser()
                 }).disposed(by: self.disposeBag)
             }
             return cell
         })
 
-        viewModelGithubStarsFavoriteLocal
+        DataManager.shared.viewModelFavoriteLocal
             .modelGithubStarsFavoriteLocal
             .map { [Section(items: $0)] }
             .bind(to: tableViewFavoriteLocal.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
         
-        self.viewModelGithubStarsFavoriteLocal.localUsers.subscribe(onNext: { userdata in
-            self.viewModelGithubStarsFavoriteLocal.filteringLocalUsers = userdata
+        DataManager.shared.viewModelFavoriteLocal.localUsers.subscribe(onNext: { userdata in
+            DataManager.shared.viewModelFavoriteLocal.filteringLocalUsers = userdata
+            DataManager.shared.viewModelFavoriteLocal.originLocalUsers = userdata
         }).disposed(by: self.disposeBag)
                     
     }

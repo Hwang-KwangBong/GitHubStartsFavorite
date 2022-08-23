@@ -18,7 +18,7 @@ extension BaseTargetType {
     }
     
     var headers: [String : String]? {
-        let header = ["Authorization": "token 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",
+        let header = ["Authorization": "token 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",
                       "Content-Type": "application/json; charset=utf-8",
                       "Accept": "application/vnd.github.v3+json"]
         return header
