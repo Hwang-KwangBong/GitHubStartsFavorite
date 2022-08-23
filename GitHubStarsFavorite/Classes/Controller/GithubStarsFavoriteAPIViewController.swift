@@ -130,12 +130,15 @@ class GithubStarsFavoriteAPIViewController: UIViewController {
                     if isFavorite == true {
                         Current.localUsers().insertOne(localUser).subscribe({ result in
                             print("Insert \(result)")
+                            DataManager.shared.syncAPIUserInsert()
                         }).disposed(by: self.disposeBag)
                     } else {
                         Current.localUsers().deleteOne(localUser).subscribe({ result in
                             print("Delete \(result)")
+                            DataManager.shared.syncAPIUserDelete()
                         }).disposed(by: self.disposeBag)
                     }
+                    
                 }
                 return cell
             }.disposed(by: disposeBag)

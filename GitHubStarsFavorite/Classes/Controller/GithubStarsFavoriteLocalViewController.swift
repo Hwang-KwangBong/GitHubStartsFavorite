@@ -31,7 +31,6 @@ class GithubStarsFavoriteLocalViewController: UIViewController {
     }
     
     func initTableView() {
-        self.initRefreshControl()
         
         self.tableViewFavoriteLocal.register(
             UINib(nibName: "GithubStarsFavoriteTableViewCell",
@@ -40,25 +39,12 @@ class GithubStarsFavoriteLocalViewController: UIViewController {
         self.tableViewFavoriteLocal.keyboardDismissMode = .onDrag
     }
  
-    func initRefreshControl() {
-        
-        let refreshControl = UIRefreshControl()
-        refreshControl
-            .rx
-            .controlEvent(.valueChanged)
-            .subscribe(onNext: { t in
-                refreshControl.endRefreshing()
-                self.tableViewFavoriteLocal.reloadData()
-            }).disposed(by: disposeBag)
-        self.tableViewFavoriteLocal.refreshControl = refreshControl
-        
-    }
     func initSearch() {
         self.textFieldSearch.rx.text.orEmpty
             .debounce(RxTimeInterval.milliseconds(300), scheduler: MainScheduler.instance)
             .distinctUntilChanged()   // 같은 아이템을 받지 않는기능
             .subscribe(onNext:  { t in
-                
+                DataManager.shared.localSearchText = t
                 print("search capbong \(DataManager.shared.viewModelFavoriteLocal.filteringLocalUsers)")
                 let filterArray = DataManager.shared.viewModelFavoriteLocal.filteringLocalUsers.filter({ $0.name.contains(t)})
                 DataManager.shared.viewModelFavoriteLocal.modelGithubStarsFavoriteLocal.onNext(filterArray)
@@ -98,16 +84,6 @@ class GithubStarsFavoriteLocalViewController: UIViewController {
                     print("Delete \(result)")
                 }).disposed(by: self.disposeBag)
 
-                DataManager.shared.viewModelFavoriteLocal.localUsers.subscribe(onNext: { userdata in
-                    guard let text = self.textFieldSearch.text else {
-                        return
-                    }
-                    DataManager.shared.viewModelFavoriteLocal.originLocalUsers = userdata
-                    DataManager.shared.viewModelFavoriteLocal.filteringLocalUsers = userdata
-                    let filterArray = DataManager.shared.viewModelFavoriteLocal.filteringLocalUsers.filter({ $0.name.contains(text)})
-                    DataManager.shared.viewModelFavoriteLocal.modelGithubStarsFavoriteLocal.onNext(filterArray)
-                    DataManager.shared.syncAPIUserAndLocalUser()
-                }).disposed(by: self.disposeBag)
             }
             return cell
         })
@@ -117,6 +93,17 @@ class GithubStarsFavoriteLocalViewController: UIViewController {
             .map { [Section(items: $0)] }
             .bind(to: tableViewFavoriteLocal.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
+        
+        DataManager.shared.viewModelFavoriteLocal.localUsers.subscribe(onNext: { userdata in
+            guard let text = self.textFieldSearch.text else {
+                return
+            }
+            DataManager.shared.viewModelFavoriteLocal.originLocalUsers = userdata
+            DataManager.shared.viewModelFavoriteLocal.filteringLocalUsers = userdata
+            let filterArray = DataManager.shared.viewModelFavoriteLocal.filteringLocalUsers.filter({ $0.name.contains(text)})
+            DataManager.shared.viewModelFavoriteLocal.modelGithubStarsFavoriteLocal.onNext(filterArray)
+            DataManager.shared.syncAPIUser()
+        }).disposed(by: self.disposeBag)
                     
     }
 }

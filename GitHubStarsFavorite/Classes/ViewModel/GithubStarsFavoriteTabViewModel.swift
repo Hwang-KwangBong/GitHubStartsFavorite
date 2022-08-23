@@ -34,11 +34,11 @@ class GithubStarsFavoriteTabViewViewModel: NSObject {
         // Set tint colors for the bar buttons and indicator.
         bar.buttons.customize {
             $0.font = UIFont.boldSystemFont(ofSize: 14)
-            $0.tintColor = UIColor.black
+            $0.tintColor = UIColor.systemGray// .black
             $0.selectedFont = UIFont.boldSystemFont(ofSize: 14)
-            $0.selectedTintColor = UIColor.blue
+            $0.selectedTintColor = UIColor.systemBlue
         }
-        bar.indicator.tintColor = UIColor.blue
+        bar.indicator.tintColor = UIColor.systemBlue
         return bar
     }
     

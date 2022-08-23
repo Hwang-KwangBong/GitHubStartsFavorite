@@ -33,7 +33,7 @@ class GithubStarsFavoriteAPIViewModel: BaseViewModel {
             
             print(response)
             self.userData.append(contentsOf: response.items)
-            DataManager.shared.syncAPIUserAndLocalUser()
+            DataManager.shared.syncAPIUserInsert()
             self.modelGithubStarsFavoriteAPI.onNext(self.userData)
             
         }
