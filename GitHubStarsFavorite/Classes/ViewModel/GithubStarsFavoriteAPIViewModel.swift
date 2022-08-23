@@ -15,7 +15,7 @@ class GithubStarsFavoriteAPIViewModel: BaseViewModel {
     var userData = [User]()
     
     let modelGithubStarsFavoriteAPI:PublishSubject<[User]> = PublishSubject()
-    
+        
     func clearList() {
         page = 1
         userData = [User]()
@@ -33,6 +33,7 @@ class GithubStarsFavoriteAPIViewModel: BaseViewModel {
             
             print(response)
             self.userData.append(contentsOf: response.items)
+            DataManager.shared.syncAPIUserAndLocalUser()
             self.modelGithubStarsFavoriteAPI.onNext(self.userData)
             
         }

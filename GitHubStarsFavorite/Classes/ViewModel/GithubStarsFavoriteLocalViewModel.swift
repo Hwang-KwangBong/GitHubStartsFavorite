@@ -32,4 +32,16 @@ class GithubStarsFavoriteLocalViewModel: BaseViewModel {
             }
 
     }
+    
+    func getLocaldata() {
+        let ordering = BehaviorRelay<Ordering>(value: .byName)
+        localUsers = ordering
+            .distinctUntilChanged()
+            .flatMapLatest { ordering -> Observable<[LocalUser]> in
+                switch ordering {
+                case .byName:
+                    return Current.localUsers().localUsersOrderedByName()
+                }
+            }
+    }
 }

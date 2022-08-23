@@ -6,11 +6,17 @@
 //
 
 import UIKit
+import RxSwift
 
 class DataManager {
     
     static let shared = DataManager()
-    private init() {}
+    let disposeBag = DisposeBag()
+    
+    private init() {
+        setBinding()
+        self.viewModelFavoriteLocal.getLocaldata()
+    }
     
     let viewModelFavoriteAPI:GithubStarsFavoriteAPIViewModel = GithubStarsFavoriteAPIViewModel()
     
@@ -26,5 +32,12 @@ class DataManager {
             self.viewModelFavoriteAPI.userData.indices.filter{self.viewModelFavoriteAPI.userData[$0].id == localUser.id}.forEach{self.viewModelFavoriteAPI.userData[$0].isFavorite = localUser.isFavorite}
         }
         self.viewModelFavoriteAPI.modelGithubStarsFavoriteAPI.onNext(self.viewModelFavoriteAPI.userData)
+    }
+    
+    func setBinding() {
+        self.viewModelFavoriteLocal.localUsers.subscribe(onNext: { userdata in
+            self.viewModelFavoriteLocal.filteringLocalUsers = userdata
+            self.viewModelFavoriteLocal.originLocalUsers = userdata
+        }).disposed(by: self.disposeBag)
     }
 }

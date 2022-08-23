@@ -14,7 +14,6 @@ import RxDataSources
 class GithubStarsFavoriteLocalViewController: UIViewController {
 
     let disposeBag = DisposeBag()
-//    let viewModelGithubStarsFavoriteLocal:GithubStarsFavoriteLocalViewModel = GithubStarsFavoriteLocalViewModel()
     
     @IBOutlet weak var tableViewFavoriteLocal: UITableView!
     @IBOutlet weak var textFieldSearch: UITextField!
@@ -95,15 +94,10 @@ class GithubStarsFavoriteLocalViewController: UIViewController {
 
                 let localUser = LocalUser(id:localUser.id,name: localUser.name, imageUrl: localUser.imageUrl, isFavorite: isFavorite)
                 DataManager.shared.setIsFavorite(localUser: localUser)
-//                if isFavorite == true {
-//                    Current.localUsers().insertOne(localUser).subscribe({ result in
-//                        print("Insert \(result)")
-//                    }).disposed(by: self.disposeBag)
-//                } else {
-                    Current.localUsers().deleteOne(localUser).subscribe({ result in
-                        print("Delete \(result)")
-                    }).disposed(by: self.disposeBag)
-//                }
+                Current.localUsers().deleteOne(localUser).subscribe({ result in
+                    print("Delete \(result)")
+                }).disposed(by: self.disposeBag)
+
                 DataManager.shared.viewModelFavoriteLocal.localUsers.subscribe(onNext: { userdata in
                     guard let text = self.textFieldSearch.text else {
                         return
@@ -112,7 +106,6 @@ class GithubStarsFavoriteLocalViewController: UIViewController {
                     DataManager.shared.viewModelFavoriteLocal.filteringLocalUsers = userdata
                     let filterArray = DataManager.shared.viewModelFavoriteLocal.filteringLocalUsers.filter({ $0.name.contains(text)})
                     DataManager.shared.viewModelFavoriteLocal.modelGithubStarsFavoriteLocal.onNext(filterArray)
-//                    self.viewModelGithubStarsFavoriteLocal.modelGithubStarsFavoriteLocal.onNext(userdata)
                     DataManager.shared.syncAPIUserAndLocalUser()
                 }).disposed(by: self.disposeBag)
             }
@@ -124,11 +117,6 @@ class GithubStarsFavoriteLocalViewController: UIViewController {
             .map { [Section(items: $0)] }
             .bind(to: tableViewFavoriteLocal.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
-        
-        DataManager.shared.viewModelFavoriteLocal.localUsers.subscribe(onNext: { userdata in
-            DataManager.shared.viewModelFavoriteLocal.filteringLocalUsers = userdata
-            DataManager.shared.viewModelFavoriteLocal.originLocalUsers = userdata
-        }).disposed(by: self.disposeBag)
                     
     }
 }

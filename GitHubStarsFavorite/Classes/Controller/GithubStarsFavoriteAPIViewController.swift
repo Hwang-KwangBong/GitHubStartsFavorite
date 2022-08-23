@@ -13,7 +13,6 @@ import Kingfisher
 class GithubStarsFavoriteAPIViewController: UIViewController {
     
     let disposeBag = DisposeBag()
-//    let viewModelGithubStarsFavoriteAPI:GithubStarsFavoriteAPIViewModel = GithubStarsFavoriteAPIViewModel()
     
     @IBOutlet weak var tableViewFavoriteAPI: UITableView!
     @IBOutlet weak var textFieldSearch: UITextField!
