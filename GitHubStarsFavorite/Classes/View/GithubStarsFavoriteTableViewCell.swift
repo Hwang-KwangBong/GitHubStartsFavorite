@@ -19,10 +19,7 @@ class GithubStarsFavoriteTableViewCell: UITableViewCell {
     
     var isCategory:Bool = false {
         willSet(newValue) {
-            DispatchQueue.main.async {
-                self.labelCategory.isHidden = newValue
-            }
-            
+            self.labelCategory.isHidden = newValue
         }
     }
     
@@ -38,6 +35,7 @@ class GithubStarsFavoriteTableViewCell: UITableViewCell {
     
     func initVariable() {
         self.buttonFavorite.isSelected = isFavorite
+        self.labelCategory.isHidden = isCategory
         self.imageViewProfile.layer.cornerRadius = self.imageViewProfile.frame.width / 2
     }
     
