@@ -28,8 +28,8 @@ Screenshots
 <img src="https://user-images.githubusercontent.com/111618993/186406432-0cc6b638-d4ac-4562-a03c-f4aca1ea9ef5.PNG" width="30%" height="20%"></img>
 <img src="https://user-images.githubusercontent.com/111618993/186406446-dc2b5e19-78b5-4105-a1f2-677467096bdf.PNG" width="30%" height="20%"></img>
 
-개선사항
-======
+향후 개선사항
+==========
 - 시간제한으로 UI / UX 최적화 보다는 기능에 중점을 두었습니다. 
   * 리스트 empty 화면 없습니다.
   * 서버 API 통신 시 Loading 화면 없습니다.
