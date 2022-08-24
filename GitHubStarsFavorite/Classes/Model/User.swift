@@ -23,15 +23,3 @@ extension User: Codable {
         case imageUrl =  "avatar_url"
     }
 }
-
-extension User: Hashable {
-
-    static func == (_ lhs: User, _ rhs: User) -> Bool {
-        return lhs.name == rhs.name
-    }
-
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(name)
-    }
-}
-

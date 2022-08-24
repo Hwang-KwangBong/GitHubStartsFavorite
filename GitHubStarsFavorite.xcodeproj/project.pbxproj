@@ -19,6 +19,7 @@
 		A538325C28B1A03000D001B8 /* AppDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A538325B28B1A03000D001B8 /* AppDatabase.swift */; };
 		A538325E28B1A0B600D001B8 /* Wolrd.swift in Sources */ = {isa = PBXBuildFile; fileRef = A538325D28B1A0B600D001B8 /* Wolrd.swift */; };
 		A538326028B1DC7400D001B8 /* GithubStarsFavoriteLocalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A538325F28B1DC7400D001B8 /* GithubStarsFavoriteLocalViewModel.swift */; };
+		A538326928B5C91800D001B8 /* LocalSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A538326828B5C91800D001B8 /* LocalSection.swift */; };
 		A555B5F628B4BB0E002E8ACE /* RxGRDB in Frameworks */ = {isa = PBXBuildFile; productRef = A555B5F528B4BB0E002E8ACE /* RxGRDB */; };
 		A555B5F828B4BB2B002E8ACE /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = A555B5F728B4BB2B002E8ACE /* RxCocoa */; };
 		A555B5FA28B4BB38002E8ACE /* Tabman in Frameworks */ = {isa = PBXBuildFile; productRef = A555B5F928B4BB38002E8ACE /* Tabman */; };
@@ -77,6 +78,7 @@
 		A538325B28B1A03000D001B8 /* AppDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDatabase.swift; sourceTree = "<group>"; };
 		A538325D28B1A0B600D001B8 /* Wolrd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wolrd.swift; sourceTree = "<group>"; };
 		A538325F28B1DC7400D001B8 /* GithubStarsFavoriteLocalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubStarsFavoriteLocalViewModel.swift; sourceTree = "<group>"; };
+		A538326828B5C91800D001B8 /* LocalSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalSection.swift; sourceTree = "<group>"; };
 		A5AC324328B0963B00E9588C /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		A5AC324B28B0A3B400E9588C /* GithubStarsFavoriteTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubStarsFavoriteTabViewController.swift; sourceTree = "<group>"; };
 		A5B11F6428B4D143005AFF10 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
@@ -158,6 +160,14 @@
 				A538325D28B1A0B600D001B8 /* Wolrd.swift */,
 			);
 			path = DataBase;
+			sourceTree = "<group>";
+		};
+		A538326A28B5CA2600D001B8 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				A538326828B5C91800D001B8 /* LocalSection.swift */,
+			);
+			path = DataSource;
 			sourceTree = "<group>";
 		};
 		A555B5F428B4BB0E002E8ACE /* Frameworks */ = {
@@ -282,6 +292,7 @@
 				A538324628B0B11500D001B8 /* View */,
 				A5D36FA528B09176003F59CB /* Controller */,
 				A5D36FA428B09121003F59CB /* ViewModel */,
+				A538326A28B5CA2600D001B8 /* DataSource */,
 				A5D36F9A28B07136003F59CB /* Model */,
 			);
 			path = Classes;
@@ -500,6 +511,7 @@
 				A538324328B0AF9A00D001B8 /* GithubStarsFavoriteAPIViewController.swift in Sources */,
 				A538324A28B0B18F00D001B8 /* GithubStarsFavoriteTableViewCell.swift in Sources */,
 				A5D36FA128B08557003F59CB /* User.swift in Sources */,
+				A538326928B5C91800D001B8 /* LocalSection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

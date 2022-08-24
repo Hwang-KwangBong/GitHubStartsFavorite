@@ -41,7 +41,6 @@ class GithubStarsFavoriteLocalViewController: UIViewController {
  
     func initSearch() {
         self.textFieldSearch.rx.text.orEmpty
-            .debounce(RxTimeInterval.milliseconds(300), scheduler: MainScheduler.instance)
             .distinctUntilChanged()   // 같은 아이템을 받지 않는기능
             .subscribe(onNext:  { text in
                 DataManager.shared.localSearchText = text
@@ -69,7 +68,7 @@ class GithubStarsFavoriteLocalViewController: UIViewController {
     }
     
     func setBinding() {
-        let dataSource = RxTableViewSectionedAnimatedDataSource<Section>(configureCell: { (dataSource, tableView, indexPath, _) in
+        let dataSource = RxTableViewSectionedAnimatedDataSource<LocalSection>(configureCell: { (dataSource, tableView, indexPath, _) in
             let section = dataSource.sectionModels[indexPath.section]
             let localUser = section.items[indexPath.row]
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "githubStarsFavoriteTableViewCellID")
@@ -96,7 +95,7 @@ class GithubStarsFavoriteLocalViewController: UIViewController {
 
         DataManager.shared.viewModelFavoriteLocal
             .modelGithubStarsFavoriteLocal
-            .map { [Section(items: $0)] }
+            .map { [LocalSection(items: $0)] }
             .bind(to: tableViewFavoriteLocal.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
         
@@ -124,20 +123,4 @@ class GithubStarsFavoriteLocalViewController: UIViewController {
             }
         }
     }
-}
-
-
-private struct Section {
-    var items: [LocalUser]
-}
-
-extension Section: AnimatableSectionModelType {
-    var identity: Int { return 1 }
-    init(original: Section, items: [LocalUser]) {
-        self.items = items
-    }
-}
-
-extension LocalUser: IdentifiableType {
-    var identity: Int64 { return id! }
 }

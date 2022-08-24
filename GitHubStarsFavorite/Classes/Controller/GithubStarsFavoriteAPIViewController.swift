@@ -108,14 +108,14 @@ class GithubStarsFavoriteAPIViewController: UIViewController {
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: "githubStarsFavoriteTableViewCellID")
                         as? GithubStarsFavoriteTableViewCell else { return UITableViewCell() }
                 cell.labelName.text = element.name
-                guard let imageURL = URL(string: element.imageUrl) else { return cell}
-                cell.imageViewProfile.kf.setImage(with: imageURL)
+                if let imageURL = URL(string: element.imageUrl) {
+                    cell.imageViewProfile.kf.setImage(with: imageURL)
+                }
                 if DataManager.shared.viewModelFavoriteAPI.userData.isEmpty == false {
                     cell.isFavorite = DataManager.shared.viewModelFavoriteAPI.userData[row].isFavorite
                 }
                 cell.closure = { (isFavorite) in
-                    DataManager.shared.viewModelFavoriteAPI.setFavoriteWithDB(index: row, isFavorite: isFavorite, user: element)
-                    
+                    DataManager.shared.viewModelFavoriteAPI.setFavoriteWithDB(index: row, isFavorite: isFavorite, user: element)                    
                 }
                 return cell
             }.disposed(by: disposeBag)
