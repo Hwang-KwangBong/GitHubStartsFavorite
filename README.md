@@ -10,6 +10,7 @@ Features
 Architecture
 ============
 - MVVM
+------
 ![image](https://user-images.githubusercontent.com/111618993/186404825-472175e4-5009-4588-bc93-5a3790de9a18.png)
 
 Requirements
