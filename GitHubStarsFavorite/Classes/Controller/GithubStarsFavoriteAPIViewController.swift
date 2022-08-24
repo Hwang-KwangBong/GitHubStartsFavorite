@@ -69,8 +69,7 @@ class GithubStarsFavoriteAPIViewController: UIViewController {
             .debounce(RxTimeInterval.milliseconds(300), scheduler: MainScheduler.instance)
             .subscribe(onNext: { t in
                 refreshControl.endRefreshing()
-                DataManager.shared.viewModelFavoriteAPI.userData = [User]()
-                DataManager.shared.viewModelFavoriteAPI.page = 1
+                
                 guard let text = self.textFieldSearch.text else {
                     DataManager.shared.viewModelFavoriteAPI.clearList()
                     return

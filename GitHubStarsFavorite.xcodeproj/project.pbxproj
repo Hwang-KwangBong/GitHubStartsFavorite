@@ -30,7 +30,6 @@
 		A5AC324C28B0A3B400E9588C /* GithubStarsFavoriteTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5AC324B28B0A3B400E9588C /* GithubStarsFavoriteTabViewController.swift */; };
 		A5B11F6528B4D143005AFF10 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B11F6428B4D143005AFF10 /* DataManager.swift */; };
 		A5D36F4D28B0604A003F59CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D36F4C28B0604A003F59CB /* AppDelegate.swift */; };
-		A5D36F5128B0604A003F59CB /* GithubStarsFavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D36F5028B0604A003F59CB /* GithubStarsFavoriteViewController.swift */; };
 		A5D36F5428B0604A003F59CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5D36F5228B0604A003F59CB /* Main.storyboard */; };
 		A5D36F5628B0604C003F59CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5D36F5528B0604C003F59CB /* Assets.xcassets */; };
 		A5D36F5928B0604C003F59CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5D36F5728B0604C003F59CB /* LaunchScreen.storyboard */; };
@@ -83,7 +82,6 @@
 		A5B11F6428B4D143005AFF10 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		A5D36F4928B0604A003F59CB /* GitHubStarsFavorite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubStarsFavorite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5D36F4C28B0604A003F59CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A5D36F5028B0604A003F59CB /* GithubStarsFavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubStarsFavoriteViewController.swift; sourceTree = "<group>"; };
 		A5D36F5328B0604A003F59CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A5D36F5528B0604C003F59CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A5D36F5828B0604C003F59CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -322,7 +320,6 @@
 		A5D36FA528B09176003F59CB /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				A5D36F5028B0604A003F59CB /* GithubStarsFavoriteViewController.swift */,
 				A5AC324B28B0A3B400E9588C /* GithubStarsFavoriteTabViewController.swift */,
 				A538324228B0AF9A00D001B8 /* GithubStarsFavoriteAPIViewController.swift */,
 				A538324428B0AFB400D001B8 /* GithubStarsFavoriteLocalViewController.swift */,
@@ -482,7 +479,6 @@
 			files = (
 				A538325E28B1A0B600D001B8 /* Wolrd.swift in Sources */,
 				A538326028B1DC7400D001B8 /* GithubStarsFavoriteLocalViewModel.swift in Sources */,
-				A5D36F5128B0604A003F59CB /* GithubStarsFavoriteViewController.swift in Sources */,
 				A5AC324C28B0A3B400E9588C /* GithubStarsFavoriteTabViewController.swift in Sources */,
 				A5D36F4D28B0604A003F59CB /* AppDelegate.swift in Sources */,
 				A5D36F8D28B06AA4003F59CB /* ResponseData.swift in Sources */,
