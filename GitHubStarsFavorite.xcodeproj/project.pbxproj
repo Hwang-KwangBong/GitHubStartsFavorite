@@ -427,7 +427,6 @@
 			packageReferences = (
 				A542D28A28B0932400AE472E /* XCRemoteSwiftPackageReference "Rxswift" */,
 				A542D28D28B093E300AE472E /* XCRemoteSwiftPackageReference "Moya" */,
-				A5AC324528B096A800E9588C /* XCRemoteSwiftPackageReference "Rxswift" */,
 				A5AC324828B099C400E9588C /* XCRemoteSwiftPackageReference "Tabman" */,
 				A538324D28B0CC5300D001B8 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				A538325328B186F200D001B8 /* XCRemoteSwiftPackageReference "RxGRDB" */,
@@ -885,14 +884,6 @@
 			repositoryURL = "https://github.com/Moya/Moya";
 			requirement = {
 				branch = master;
-				kind = branch;
-			};
-		};
-		A5AC324528B096A800E9588C /* XCRemoteSwiftPackageReference "Rxswift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/reactiveX/Rxswift.git";
-			requirement = {
-				branch = main;
 				kind = branch;
 			};
 		};
