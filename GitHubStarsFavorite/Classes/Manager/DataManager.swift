@@ -22,8 +22,12 @@ class DataManager {
     }
     
     func setIsFavorite(localUser : LocalUser) {
-        self.viewModelFavoriteAPI.userData.indices.filter{self.viewModelFavoriteAPI.userData[$0].id == localUser.id}.forEach{self.viewModelFavoriteAPI.userData[$0].isFavorite = localUser.isFavorite}
+        self.syncFavorite(localUser: localUser)
         self.viewModelFavoriteAPI.modelGithubStarsFavoriteAPI.onNext(viewModelFavoriteAPI.userData)
+    }
+    
+    func syncFavorite(localUser : LocalUser) {
+        self.viewModelFavoriteAPI.userData.indices.filter{self.viewModelFavoriteAPI.userData[$0].id == localUser.id}.forEach{self.viewModelFavoriteAPI.userData[$0].isFavorite = localUser.isFavorite}
     }
 
     func syncAPIUserInsert() {
@@ -38,7 +42,7 @@ class DataManager {
     
     func syncAPIUser() {
         for localUser in self.viewModelFavoriteLocal.originLocalUsers {
-            self.viewModelFavoriteAPI.userData.indices.filter{self.viewModelFavoriteAPI.userData[$0].id == localUser.id}.forEach{self.viewModelFavoriteAPI.userData[$0].isFavorite = localUser.isFavorite}
+            self.syncFavorite(localUser: localUser)
         }
         self.viewModelFavoriteAPI.modelGithubStarsFavoriteAPI.onNext(self.viewModelFavoriteAPI.userData)
     }
