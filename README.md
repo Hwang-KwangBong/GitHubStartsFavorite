@@ -14,7 +14,7 @@ Architecture
 ![image](https://user-images.githubusercontent.com/111618993/186404825-472175e4-5009-4588-bc93-5a3790de9a18.png)
 
 - DataManager
-* API 리스트와 로컬 리스트 데이터 연동 및 관리는 DataManager를 통하여 갱신 되도록 구현하였습니다. (Singleton 패턴)
++ API 리스트와 로컬 리스트 데이터 연동 및 관리는 DataManager를 통하여 갱신 되도록 구현하였습니다. (Singleton 패턴)
 
 Requirements
 ============
