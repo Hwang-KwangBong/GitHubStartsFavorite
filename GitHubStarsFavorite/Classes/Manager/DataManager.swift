@@ -58,4 +58,9 @@ class DataManager {
             self.viewModelFavoriteLocal.originLocalUsers = userdata
         }).disposed(by: self.disposeBag)
     }
+    
+    func refreshFilteringLocalUsers() {
+        let filterArray = self.viewModelFavoriteLocal.filteringLocalUsers.filter({ $0.name.contains(self.localSearchText)})
+        self.viewModelFavoriteLocal.modelGithubStarsFavoriteLocal.onNext(filterArray)
+    }
 }

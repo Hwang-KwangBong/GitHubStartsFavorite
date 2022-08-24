@@ -10,7 +10,6 @@ import RxCocoa
 import RxSwift
 
 class GithubStarsFavoriteLocalViewModel: BaseViewModel {
-    let disposeBag = DisposeBag()
     var localUsers: Observable<[LocalUser]>
     var originLocalUsers = [LocalUser]()
     var filteringLocalUsers = [LocalUser]()

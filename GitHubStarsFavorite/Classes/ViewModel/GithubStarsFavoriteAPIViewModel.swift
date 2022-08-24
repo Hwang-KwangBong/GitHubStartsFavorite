@@ -22,6 +22,22 @@ class GithubStarsFavoriteAPIViewModel: BaseViewModel {
         self.modelGithubStarsFavoriteAPI.onNext(userData)
     }
     
+    func setFavoriteWithDB(index:Int,isFavorite:Bool, user:User) {
+        DataManager.shared.viewModelFavoriteAPI.userData[index].isFavorite = isFavorite
+        let localUser = LocalUser(id:user.id,name: user.name, imageUrl: user.imageUrl, isFavorite: isFavorite)
+        if isFavorite == true {
+            Current.localUsers().insertOne(localUser).subscribe({ result in
+                print("Insert \(result)")
+                DataManager.shared.syncAPIUserInsert()
+            }).disposed(by: self.disposeBag)
+        } else {
+            Current.localUsers().deleteOne(localUser).subscribe({ result in
+                print("Delete \(result)")
+                DataManager.shared.syncAPIUserDelete()
+            }).disposed(by: self.disposeBag)
+        }
+    }
+    
     // MARK: Network
     func requestUserList(params:SearchUserParams,_ isLoadingBar : Bool = true) {
         GithubSearchUsersAPI.getSearchUsersList(params: params) { response, error in

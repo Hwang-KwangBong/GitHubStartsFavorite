@@ -52,10 +52,7 @@ class GithubStarsFavoriteAPIViewController: UIViewController {
                   return
               }
               DataManager.shared.viewModelFavoriteAPI.page += 1
-              DataManager.shared.viewModelFavoriteAPI
-                  .requestUserList(params: SearchUserParams(query: text,
-                                                            page: DataManager.shared.viewModelFavoriteAPI.page,
-                                                            perPage: DataManager.shared.viewModelFavoriteAPI.perPage))
+              self.requestUserList(quary: text)
           }
           .disposed(by: self.disposeBag)
     }
@@ -79,11 +76,7 @@ class GithubStarsFavoriteAPIViewController: UIViewController {
                     DataManager.shared.viewModelFavoriteAPI.clearList()
                     return
                 }
-                
-                DataManager.shared.viewModelFavoriteAPI
-                    .requestUserList(params: SearchUserParams(query: text,
-                                                              page: DataManager.shared.viewModelFavoriteAPI.page,
-                                                              perPage: DataManager.shared.viewModelFavoriteAPI.perPage))
+                self.requestUserList(quary: text)
                 
             }).disposed(by: disposeBag)
         self.tableViewFavoriteAPI.refreshControl = refreshControl
@@ -94,16 +87,13 @@ class GithubStarsFavoriteAPIViewController: UIViewController {
         self.textFieldSearch.rx.text.orEmpty
             .debounce(RxTimeInterval.milliseconds(300), scheduler: MainScheduler.instance)
             .distinctUntilChanged()   // 같은 아이템을 받지 않는기능
-            .subscribe(onNext: { t in
-                if t.isEmpty {
+            .subscribe(onNext: { text in
+                if text.isEmpty {
                     DataManager.shared.viewModelFavoriteAPI.clearList()
                     return
                 }
                 DataManager.shared.viewModelFavoriteAPI.clearList()
-                DataManager.shared.viewModelFavoriteAPI
-                    .requestUserList(params: SearchUserParams(query: t,
-                                                              page: DataManager.shared.viewModelFavoriteAPI.page,
-                                                              perPage: DataManager.shared.viewModelFavoriteAPI.perPage))
+                self.requestUserList(quary: text)
             })
             .disposed(by: disposeBag)
         
@@ -124,19 +114,7 @@ class GithubStarsFavoriteAPIViewController: UIViewController {
                     cell.isFavorite = DataManager.shared.viewModelFavoriteAPI.userData[row].isFavorite
                 }
                 cell.closure = { (isFavorite) in
-                    DataManager.shared.viewModelFavoriteAPI.userData[row].isFavorite = isFavorite
-                    let localUser = LocalUser(id:element.id,name: element.name, imageUrl: element.imageUrl, isFavorite: isFavorite)
-                    if isFavorite == true {
-                        Current.localUsers().insertOne(localUser).subscribe({ result in
-                            print("Insert \(result)")
-                            DataManager.shared.syncAPIUserInsert()
-                        }).disposed(by: self.disposeBag)
-                    } else {
-                        Current.localUsers().deleteOne(localUser).subscribe({ result in
-                            print("Delete \(result)")
-                            DataManager.shared.syncAPIUserDelete()
-                        }).disposed(by: self.disposeBag)
-                    }
+                    DataManager.shared.viewModelFavoriteAPI.setFavoriteWithDB(index: row, isFavorite: isFavorite, user: element)
                     
                 }
                 return cell
@@ -152,6 +130,13 @@ class GithubStarsFavoriteAPIViewController: UIViewController {
                 }
                 
             }).disposed(by: disposeBag)
+    }
+    
+    func requestUserList(quary:String) {
+        DataManager.shared.viewModelFavoriteAPI
+            .requestUserList(params: SearchUserParams(query: quary,
+                                                      page: DataManager.shared.viewModelFavoriteAPI.page,
+                                                      perPage: DataManager.shared.viewModelFavoriteAPI.perPage))
     }
     
 }

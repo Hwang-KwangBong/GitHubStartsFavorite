@@ -31,7 +31,7 @@ class GithubStarsFavoriteLocalViewController: UIViewController {
     }
     
     func initTableView() {
-        
+        self.initRefreshControl()
         self.tableViewFavoriteLocal.register(
             UINib(nibName: "GithubStarsFavoriteTableViewCell",
                   bundle: Bundle(for: GithubStarsFavoriteTableViewCell.self)),
@@ -43,13 +43,28 @@ class GithubStarsFavoriteLocalViewController: UIViewController {
         self.textFieldSearch.rx.text.orEmpty
             .debounce(RxTimeInterval.milliseconds(300), scheduler: MainScheduler.instance)
             .distinctUntilChanged()   // 같은 아이템을 받지 않는기능
-            .subscribe(onNext:  { t in
-                DataManager.shared.localSearchText = t
+            .subscribe(onNext:  { text in
+                DataManager.shared.localSearchText = text
                 print("search capbong \(DataManager.shared.viewModelFavoriteLocal.filteringLocalUsers)")
-                let filterArray = DataManager.shared.viewModelFavoriteLocal.filteringLocalUsers.filter({ $0.name.contains(t)})
-                DataManager.shared.viewModelFavoriteLocal.modelGithubStarsFavoriteLocal.onNext(filterArray)
+                DataManager.shared.refreshFilteringLocalUsers()
+                self.tableViewFavoriteLocal.reloadData()
             })
             .disposed(by: disposeBag)
+        
+    }
+    
+    func initRefreshControl() {
+        
+        let refreshControl = UIRefreshControl()
+        refreshControl
+            .rx
+            .controlEvent(.valueChanged)
+            .subscribe(onNext: { t in
+                refreshControl.endRefreshing()
+                self.tableViewFavoriteLocal.reloadData()
+                
+            }).disposed(by: disposeBag)
+        self.tableViewFavoriteLocal.refreshControl = refreshControl
         
     }
     
@@ -59,22 +74,11 @@ class GithubStarsFavoriteLocalViewController: UIViewController {
             let localUser = section.items[indexPath.row]
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "githubStarsFavoriteTableViewCellID")
                     as? GithubStarsFavoriteTableViewCell else { return UITableViewCell() }
+            self.setIndexingData(localUserName: localUser.name, row: indexPath.row, items: section.items, cell: cell)
             cell.labelName.text = localUser.name
-            if let firstChar = localUser.name.first {
-                var preCategoryName = ""
-                if indexPath.row != 0 {
-                    preCategoryName = String(section.items[indexPath.row - 1].name.first!)
-                }
-                let stringFirst = String(firstChar)
-                if stringFirst.isEmpty == false && preCategoryName == stringFirst {
-                    cell.isCategory = true
-                } else {
-                    cell.isCategory = false
-                    cell.labelCategory.text =  stringFirst
-                }
+            if let imageURL = URL(string: localUser.imageUrl) {
+                cell.imageViewProfile.kf.setImage(with: imageURL)
             }
-            guard let imageURL = URL(string: localUser.imageUrl) else { return cell}
-            cell.imageViewProfile.kf.setImage(with: imageURL)
             cell.isFavorite = localUser.isFavorite
             cell.closure = { (isFavorite) in
 
@@ -82,6 +86,8 @@ class GithubStarsFavoriteLocalViewController: UIViewController {
                 DataManager.shared.setIsFavorite(localUser: localUser)
                 Current.localUsers().deleteOne(localUser).subscribe({ result in
                     print("Delete \(result)")
+                    DataManager.shared.refreshFilteringLocalUsers()
+                    self.tableViewFavoriteLocal.reloadData()
                 }).disposed(by: self.disposeBag)
 
             }
@@ -95,18 +101,31 @@ class GithubStarsFavoriteLocalViewController: UIViewController {
             .disposed(by: disposeBag)
         
         DataManager.shared.viewModelFavoriteLocal.localUsers.subscribe(onNext: { userdata in
-            guard let text = self.textFieldSearch.text else {
-                return
-            }
             DataManager.shared.viewModelFavoriteLocal.originLocalUsers = userdata
             DataManager.shared.viewModelFavoriteLocal.filteringLocalUsers = userdata
-            let filterArray = DataManager.shared.viewModelFavoriteLocal.filteringLocalUsers.filter({ $0.name.contains(text)})
-            DataManager.shared.viewModelFavoriteLocal.modelGithubStarsFavoriteLocal.onNext(filterArray)
+            DataManager.shared.refreshFilteringLocalUsers()
             DataManager.shared.syncAPIUser()
         }).disposed(by: self.disposeBag)
                     
     }
+    
+    func setIndexingData(localUserName:String, row:Int,items:[LocalUser],cell:GithubStarsFavoriteTableViewCell) {
+        if let firstChar = localUserName.first {
+            var preCategoryName = ""
+            if row > 0 {
+                preCategoryName = String(items[row - 1].name.first!)
+            }
+            
+            if preCategoryName == String(firstChar) {
+                cell.isCategory = true
+            } else {
+                cell.isCategory = false
+                cell.labelCategory.text =  String(firstChar)
+            }
+        }
+    }
 }
+
 
 private struct Section {
     var items: [LocalUser]

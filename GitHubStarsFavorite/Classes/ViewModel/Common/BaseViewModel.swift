@@ -14,7 +14,7 @@ public enum commonError {
 }
 
 class BaseViewModel {
-    
+    let disposeBag = DisposeBag()
     public let error:PublishSubject<commonError> = PublishSubject()
     
 }
